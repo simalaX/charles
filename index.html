@@ -385,6 +385,20 @@
             transform: translateY(-3px);
         }
 
+        .cta-button.cv-btn {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            cursor: pointer;
+            font-family: var(--font-primary);
+        }
+
+        .cta-button.cv-btn:hover {
+            background: var(--secondary);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
         .social-icons {
             display: flex;
             gap: 1.5rem;
@@ -1086,7 +1100,8 @@
                 </div>
                 <h1 class="glitch" data-text="Simala Watts">Simala Watts</h1>
                 <div class="typing-container">
-                    <p class="typing-text">Mobile App Developer | Ethical Hacker | Blockchain Specialist</p>
+                    <p class="typing-text">Mobile App Developer | Ethical Hacker | Blockchain Specialist | Website
+                        Developer</p>
                 </div>
                 <p class="subtitle">Securing the Digital Future, One Line of Code at a Time</p>
                 <div class="hero-buttons">
@@ -1096,6 +1111,9 @@
                     <a href="#projects" class="cta-button secondary">
                         <i class="fas fa-code"></i> View Projects
                     </a>
+                    <button onclick="generateCV()" class="cta-button cv-btn">
+                        <i class="fas fa-file-arrow-down"></i> Download CV
+                    </button>
                 </div>
                 <div class="social-icons">
                     <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
@@ -1128,8 +1146,10 @@
                     <p class="intro">Hello! I'm Simala Watts, a passionate technologist dedicated to building secure and
                         innovative digital solutions.</p>
 
-                    <p>I specialize in <strong>mobile application development</strong> using Kotlin and Jetpack Compose,
-                        creating intuitive and performant Android apps. My expertise extends to implementing robust
+                    <p>I specialize in <strong>mobile application development</strong> using Kotlin, Java, Flutter, and
+                        Jetpack Compose,
+                        creating intuitive and performant Android and cross-platform apps. My expertise extends to
+                        implementing robust
                         Firebase security, encryption protocols, and authentication systems.</p>
 
                     <p>As an <strong>ethical hacker</strong>, I leverage tools like Python, Kali Linux, Wireshark,
@@ -1187,6 +1207,9 @@
                     <h3>Mobile Development</h3>
                     <div class="skill-items">
                         <span class="skill-tag"><i class="fas fa-check"></i> Kotlin</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> Java</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> Flutter</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> Dart</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Jetpack Compose</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Android SDK</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Firebase</span>
@@ -1651,6 +1674,224 @@
         console.log('%c👋 Hello there!', 'color: #00ff87; font-size: 24px; font-weight: bold;');
         console.log('%cInterested in the code? Check out my GitHub!', 'color: #00d9ff; font-size: 14px;');
         console.log('%chttps://github.com/simalaX', 'color: #ffffff; font-size: 12px;');
+    </script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function generateCV() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+            const W = 210;
+            const primaryGreen = [0, 220, 120];
+            const darkBg = [10, 14, 39];
+            const textDark = [30, 30, 50];
+            const textGrey = [100, 105, 130];
+            const white = [255, 255, 255];
+            const lightLine = [220, 230, 240];
+
+            // ── DYNAMICALLY READ FROM THE PAGE ──────────────────────────
+
+            // Name
+            const name = (document.querySelector('.hero h1')?.textContent || 'Simala Watts').trim().toUpperCase();
+
+            // Typing text (roles)
+            const roles = (document.querySelector('.typing-text')?.textContent || '').trim();
+
+            // About paragraphs
+            const aboutParas = [...document.querySelectorAll('.about-text p')].map(p => p.textContent.trim()).filter(Boolean);
+            const aboutText = aboutParas.join(' ');
+
+            // Mission highlight
+            const mission = document.querySelector('.highlight-box p')?.textContent?.trim() || '';
+
+            // Skills — each category title + tags
+            const skillCols = [...document.querySelectorAll('.skill-category')].map(cat => ({
+                title: cat.querySelector('h3')?.textContent?.trim() || '',
+                items: [...cat.querySelectorAll('.skill-tag')].map(t => t.textContent.replace(/[✓]/g, '').trim())
+            }));
+
+            // Projects
+            const projects = [...document.querySelectorAll('.project-card')].map(card => ({
+                name: card.querySelector('h3')?.textContent?.trim() || '',
+                tech: [...card.querySelectorAll('.project-tech span')].map(s => s.textContent.trim()).join(' · '),
+                desc: card.querySelector('p')?.textContent?.trim() || ''
+            })).filter(p => p.name);
+
+            // Stats
+            const stats = [...document.querySelectorAll('.stat-card')].map(s => {
+                const num = s.querySelector('h3')?.textContent?.trim() || '';
+                const label = s.querySelector('p')?.textContent?.trim() || '';
+                return `${num} ${label}`;
+            });
+
+            // Contact links
+            const emailEl = document.querySelector('a[href^="mailto:"]');
+            const email = emailEl ? emailEl.href.replace('mailto:', '') : '';
+            const githubEl = document.querySelector('a[href*="github.com/simala"]');
+            const github = githubEl ? githubEl.href.replace('https://', '') : '';
+            const twitterEl = document.querySelector('a[href*="x.com/"]');
+            const twitter = twitterEl ? twitterEl.href.replace('https://', '') : '';
+            const waEl = document.querySelector('a[href*="wa.me"]');
+            const whatsapp = waEl ? waEl.href.replace('https://', '') : '';
+
+            // ── HELPERS ──────────────────────────────────────────────────
+            function checkPage(yPos, needed = 20) {
+                if (yPos + needed > 278) { doc.addPage(); return 20; }
+                return yPos;
+            }
+
+            function sectionTitle(label, yPos) {
+                yPos = checkPage(yPos, 18);
+                doc.setFillColor(...primaryGreen);
+                doc.rect(14, yPos, 3, 6, 'F');
+                doc.setTextColor(...textDark);
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'bold');
+                doc.text(label.toUpperCase(), 20, yPos + 5);
+                doc.setDrawColor(...lightLine);
+                doc.setLineWidth(0.4);
+                doc.line(20, yPos + 7, W - 14, yPos + 7);
+                return yPos + 14;
+            }
+
+            function bodyText(text, xPos, yPos, maxW) {
+                yPos = checkPage(yPos, 10);
+                doc.setTextColor(...textGrey);
+                doc.setFontSize(9);
+                doc.setFont('helvetica', 'normal');
+                const lines = doc.splitTextToSize(text, maxW || W - 28);
+                lines.forEach(line => {
+                    yPos = checkPage(yPos, 6);
+                    doc.text(line, xPos, yPos);
+                    yPos += 5;
+                });
+                return yPos;
+            }
+
+            function tag(label, xPos, yPos) {
+                doc.setFontSize(7.5);
+                const tw = doc.getTextWidth(label) + 5;
+                doc.setFillColor(230, 248, 240);
+                doc.setDrawColor(...primaryGreen);
+                doc.setLineWidth(0.3);
+                doc.roundedRect(xPos, yPos - 3.5, tw, 5.5, 1.2, 1.2, 'FD');
+                doc.setTextColor(...textDark);
+                doc.setFont('helvetica', 'normal');
+                doc.text(label, xPos + 2.5, yPos + 0.8);
+                return tw + 2;
+            }
+
+            function tagRow(items, startX, yPos) {
+                let x = startX;
+                items.forEach(item => {
+                    doc.setFontSize(7.5);
+                    const tw = doc.getTextWidth(item) + 7;
+                    if (x + tw > W - 14) { x = startX; yPos += 7; yPos = checkPage(yPos, 8); }
+                    x += tag(item, x, yPos);
+                });
+                return yPos + 8;
+            }
+
+            // ── HEADER ───────────────────────────────────────────────────
+            doc.setFillColor(...darkBg);
+            doc.rect(0, 0, W, 50, 'F');
+
+            doc.setTextColor(...primaryGreen);
+            doc.setFontSize(24);
+            doc.setFont('helvetica', 'bold');
+            doc.text(name, 14, 18);
+
+            doc.setTextColor(...white);
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            const roleLines = doc.splitTextToSize(roles, W - 28);
+            doc.text(roleLines, 14, 27);
+
+            doc.setTextColor(...primaryGreen);
+            doc.setFontSize(8);
+            const contactParts = [email, github, twitter, whatsapp].filter(Boolean);
+            doc.text(contactParts.join('   |   '), 14, 43);
+
+            doc.setFillColor(...primaryGreen);
+            doc.rect(0, 50, W, 1.5, 'F');
+
+            let y = 60;
+
+            // ── ABOUT ────────────────────────────────────────────────────
+            y = sectionTitle('About Me', y);
+            y = bodyText(aboutText, 14, y);
+            if (mission) {
+                y += 2;
+                y = bodyText('Mission: ' + mission, 14, y);
+            }
+            y += 4;
+
+            // ── SKILLS ──────────────────────────────────────────────────
+            y = sectionTitle('Skills & Expertise', y);
+            skillCols.forEach(col => {
+                y = checkPage(y, 20);
+                doc.setTextColor(...textDark);
+                doc.setFontSize(9.5);
+                doc.setFont('helvetica', 'bold');
+                doc.text(col.title, 14, y);
+                y += 7;
+                y = tagRow(col.items, 14, y);
+                y += 2;
+            });
+            y += 2;
+
+            // ── PROJECTS ─────────────────────────────────────────────────
+            y = sectionTitle('Featured Projects', y);
+            projects.forEach(p => {
+                y = checkPage(y, 22);
+                doc.setTextColor(...textDark);
+                doc.setFontSize(10);
+                doc.setFont('helvetica', 'bold');
+                doc.text('▸ ' + p.name, 14, y);
+                y += 5;
+                if (p.tech) {
+                    doc.setTextColor(...primaryGreen);
+                    doc.setFontSize(8);
+                    doc.setFont('helvetica', 'italic');
+                    doc.text(p.tech, 20, y);
+                    y += 5;
+                }
+                y = bodyText(p.desc, 20, y, W - 34);
+                y += 3;
+            });
+
+            // ── STATS ────────────────────────────────────────────────────
+            y = checkPage(y, 24);
+            y = sectionTitle('Key Stats', y);
+            const colW = (W - 28) / Math.min(stats.length, 4);
+            let sx = 14;
+            stats.slice(0, 4).forEach(s => {
+                doc.setFillColor(...darkBg);
+                doc.roundedRect(sx, y - 4, colW - 2, 12, 2, 2, 'F');
+                doc.setTextColor(...primaryGreen);
+                doc.setFontSize(8);
+                doc.setFont('helvetica', 'bold');
+                const lines = doc.splitTextToSize(s, colW - 6);
+                doc.text(lines, sx + 3, y + 3);
+                sx += colW;
+            });
+            y += 16;
+
+            // ── FOOTER ───────────────────────────────────────────────────
+            const pageCount = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+                doc.setFillColor(...darkBg);
+                doc.rect(0, 287, W, 10, 'F');
+                doc.setTextColor(...primaryGreen);
+                doc.setFontSize(7.5);
+                doc.text(`${name} — ${email} — ${github}`, W / 2, 293, { align: 'center' });
+            }
+
+            doc.save('Simala_Watts_CV.pdf');
+        }
     </script>
 </body>
 
