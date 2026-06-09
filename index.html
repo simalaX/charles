@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simala Watts - Portfolio</title>
+    <title>Charles Nderitu - Software Engineer</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +18,6 @@
         }
 
         :root {
-            /* Color Palette */
             --primary: #00ff87;
             --primary-dark: #00cc6e;
             --secondary: #00d9ff;
@@ -32,21 +30,15 @@
             --gradient: linear-gradient(135deg, #00ff87 0%, #00d9ff 100%);
             --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-blue: linear-gradient(135deg, #00d9ff 0%, #0066ff 100%);
-
-            /* Shadows */
             --shadow-sm: 0 2px 10px rgba(0, 255, 135, 0.1);
             --shadow-md: 0 4px 20px rgba(0, 255, 135, 0.2);
             --shadow-lg: 0 8px 30px rgba(0, 255, 135, 0.3);
             --glow: 0 0 20px rgba(0, 255, 135, 0.5);
-
-            /* Typography */
             --font-primary: 'Poppins', sans-serif;
             --font-heading: 'Space Grotesk', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-primary);
@@ -102,10 +94,7 @@
             gap: 0.5rem;
         }
 
-        .logo i {
-            -webkit-text-fill-color: var(--primary);
-            font-size: 1.8rem;
-        }
+        .logo i { -webkit-text-fill-color: var(--primary); font-size: 1.8rem; }
 
         .nav-links {
             display: flex;
@@ -132,21 +121,10 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .nav-links a.active::before {
-            width: 100%;
-        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::before { width: 100%; }
+        .nav-links a.active { color: var(--primary); }
+        .nav-links a.active::before { width: 100%; }
 
         .burger {
             display: none;
@@ -163,7 +141,7 @@
             border-radius: 2px;
         }
 
-        /* Hero Section */
+        /* Hero */
         #home {
             min-height: 100vh;
             display: flex;
@@ -177,10 +155,8 @@
 
         .particles {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             overflow: hidden;
         }
 
@@ -191,10 +167,7 @@
             padding: 8rem 2rem 4rem;
         }
 
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .hero-content { max-width: 900px; margin: 0 auto; }
 
         .profile-wrapper {
             position: relative;
@@ -222,10 +195,7 @@
 
         .profile-ring {
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
             border-radius: 50%;
             border: 2px solid transparent;
             background: var(--gradient);
@@ -237,13 +207,8 @@
         }
 
         @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero h1 {
@@ -257,75 +222,25 @@
             background-clip: text;
         }
 
-        .glitch {
-            position: relative;
-            animation: glitch-skew 2s infinite;
-        }
+        .glitch { position: relative; animation: glitch-skew 2s infinite; }
 
         @keyframes glitch-skew {
-
-            0%,
-            100% {
-                transform: skew(0deg);
-            }
-
-            20% {
-                transform: skew(0.5deg);
-            }
-
-            40% {
-                transform: skew(-0.5deg);
-            }
+            0%, 100% { transform: skew(0deg); }
+            20% { transform: skew(0.5deg); }
+            40% { transform: skew(-0.5deg); }
         }
 
         @keyframes glitch {
-            0% {
-                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-                    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-
-            14% {
-                text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-                    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-
-            15% {
-                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-
-            49% {
-                text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-                    0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-
-            50% {
-                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                    0.05em 0 0 rgba(0, 255, 0, 0.75),
-                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-
-            99% {
-                text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-                    0.05em 0 0 rgba(0, 255, 0, 0.75),
-                    0 -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
-
-            100% {
-                text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
-                    -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
-                    -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
-            }
+            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75); }
+            14% { text-shadow: 0.05em 0 0 rgba(255,0,0,.75), -0.025em -0.05em 0 rgba(0,255,0,.75), 0.025em 0.05em 0 rgba(0,0,255,.75); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
+            49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,.75), 0.025em 0.025em 0 rgba(0,255,0,.75), -0.05em -0.05em 0 rgba(0,0,255,.75); }
+            50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75); }
+            99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,.75), 0.05em 0 0 rgba(0,255,0,.75), 0 -0.05em 0 rgba(0,0,255,.75); }
+            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,.75), -0.025em -0.025em 0 rgba(0,255,0,.75), -0.025em -0.05em 0 rgba(0,0,255,.75); }
         }
 
-        .typing-container {
-            min-height: 40px;
-            margin-bottom: 1rem;
-        }
+        .typing-container { min-height: 40px; margin-bottom: 1rem; }
 
         .typing-text {
             font-size: 1.5rem;
@@ -348,6 +263,7 @@
             gap: 1.5rem;
             justify-content: center;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .cta-button {
@@ -437,22 +353,9 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
 
         .mouse {
@@ -473,31 +376,18 @@
             top: 8px;
             left: 50%;
             transform: translateX(-50%);
-            animation: scroll 1.5s infinite;
+            animation: scroll-anim 1.5s infinite;
         }
 
-        @keyframes scroll {
-            0% {
-                opacity: 1;
-                top: 8px;
-            }
-
-            100% {
-                opacity: 0;
-                top: 28px;
-            }
+        @keyframes scroll-anim {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 28px; }
         }
 
-        .scroll-indicator p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
+        .scroll-indicator p { font-size: 0.8rem; color: var(--text-secondary); }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
+        /* Sections */
+        section { padding: 6rem 0; position: relative; }
 
         .section-title {
             font-size: 2.5rem;
@@ -508,16 +398,10 @@
             gap: 1rem;
         }
 
-        .title-number {
-            font-size: 1.5rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
+        .title-number { font-size: 1.5rem; color: var(--primary); font-weight: 700; }
 
-        /* About Section */
-        #about {
-            background: var(--dark-bg);
-        }
+        /* About */
+        #about { background: var(--dark-bg); }
 
         .about-content {
             display: grid;
@@ -539,9 +423,7 @@
             font-weight: 500;
         }
 
-        .about-text strong {
-            color: var(--primary);
-        }
+        .about-text strong { color: var(--primary); }
 
         .highlight-box {
             background: var(--card-bg);
@@ -554,11 +436,7 @@
             gap: 1rem;
         }
 
-        .highlight-box i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
+        .highlight-box i { color: var(--primary); font-size: 1.5rem; flex-shrink: 0; }
 
         .about-stats {
             display: grid;
@@ -582,11 +460,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        .stat-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
+        .stat-card i { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
 
         .stat-card h3 {
             font-size: 2rem;
@@ -598,12 +472,103 @@
             margin-bottom: 0.3rem;
         }
 
-        .stat-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .stat-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Education Section */
+        #education { background: var(--darker-bg); }
+
+        .education-timeline {
+            position: relative;
+            padding-left: 2rem;
         }
 
-        /* Skills Section */
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+        }
+
+        .edu-item {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 135, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .edu-item:hover {
+            transform: translateX(5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -2.7rem;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .edu-badge {
+            display: inline-block;
+            background: rgba(0, 255, 135, 0.1);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .edu-item h3 {
+            font-size: 1.3rem;
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-item .institution {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-item .edu-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .edu-courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .edu-courses span {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -637,10 +602,7 @@
             box-shadow: var(--glow);
         }
 
-        .category-icon i {
-            font-size: 2rem;
-            color: var(--dark-bg);
-        }
+        .category-icon i { font-size: 2rem; color: var(--dark-bg); }
 
         .skill-category h3 {
             font-size: 1.5rem;
@@ -649,11 +611,7 @@
             color: var(--text-primary);
         }
 
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
+        .skill-items { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
         .skill-tag {
             background: rgba(0, 255, 135, 0.1);
@@ -674,19 +632,11 @@
             transform: translateY(-2px);
         }
 
-        .skill-tag i {
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
+        .skill-tag i { color: var(--primary); font-size: 0.8rem; }
+        .skill-tag:hover i { color: var(--dark-bg); }
 
-        .skill-tag:hover i {
-            color: var(--dark-bg);
-        }
-
-        /* Projects Section */
-        #projects {
-            background: var(--dark-bg);
-        }
+        /* Projects */
+        #projects { background: var(--dark-bg); }
 
         .projects-grid {
             display: grid;
@@ -723,15 +673,9 @@
             margin-bottom: 1.5rem;
         }
 
-        .project-header i {
-            font-size: 2rem;
-            color: var(--primary);
-        }
+        .project-header i { font-size: 2rem; color: var(--primary); }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
+        .project-links { display: flex; gap: 1rem; }
 
         .project-links a {
             color: var(--text-secondary);
@@ -758,11 +702,7 @@
             line-height: 1.7;
         }
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
         .project-tech span {
             background: rgba(0, 217, 255, 0.1);
@@ -773,16 +713,78 @@
             color: var(--secondary);
         }
 
-        /* Contact Section */
+        /* Experience */
+        #experience { background: var(--darker-bg); }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .exp-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 135, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .exp-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .exp-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .exp-icon i { font-size: 1.5rem; color: var(--dark-bg); }
+
+        .exp-card h3 {
+            font-size: 1.2rem;
+            font-family: var(--font-heading);
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-card .exp-company {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-card .exp-period {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .exp-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Contact */
         .contact-content {
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .contact-text {
-            margin-bottom: 3rem;
-        }
+        .contact-text { margin-bottom: 3rem; }
 
         .contact-text h3 {
             font-size: 2rem;
@@ -826,21 +828,9 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-        }
-
-        .contact-card h4 {
-            font-size: 1.2rem;
-            font-family: var(--font-heading);
-            color: var(--text-primary);
-        }
-
-        .contact-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
+        .contact-card i { font-size: 2.5rem; color: var(--primary); }
+        .contact-card h4 { font-size: 1.2rem; font-family: var(--font-heading); color: var(--text-primary); }
+        .contact-card p { color: var(--text-secondary); font-size: 0.95rem; }
 
         /* Footer */
         footer {
@@ -850,10 +840,7 @@
             text-align: center;
         }
 
-        .footer-content p {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
+        .footer-content p { color: var(--text-secondary); margin-bottom: 0.5rem; }
 
         .footer-links {
             display: flex;
@@ -875,62 +862,27 @@
 
         /* Animations */
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 1;
-            }
-
-            50% {
-                transform: translateY(-100px) translateX(50px);
-            }
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            50% { transform: translateY(-100px) translateX(50px); }
         }
 
         @keyframes navLinkFade {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes trailFade {
-            to {
-                opacity: 0;
-                transform: scale(2);
-            }
+            to { opacity: 0; transform: scale(2); }
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 968px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card.featured {
-                grid-column: span 1;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .typing-text {
-                font-size: 1.2rem;
-            }
+            .about-content { grid-template-columns: 1fr; }
+            .project-card.featured { grid-column: span 1; }
+            .hero h1 { font-size: 3rem; }
+            .typing-text { font-size: 1.2rem; }
         }
 
         @media (max-width: 768px) {
@@ -949,67 +901,28 @@
                 border-left: 1px solid rgba(0, 255, 135, 0.2);
             }
 
-            .nav-links.active {
-                transform: translateX(0);
-            }
+            .nav-links.active { transform: translateX(0); }
+            .burger { display: flex; }
 
-            .burger {
-                display: flex;
-            }
+            .burger.active .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .burger.active .line2 { opacity: 0; }
+            .burger.active .line3 { transform: rotate(45deg) translate(-5px, -6px); }
 
-            .burger.active .line1 {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .burger.active .line2 {
-                opacity: 0;
-            }
-
-            .burger.active .line3 {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-methods {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; }
+            .section-title { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .contact-methods { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .typing-text {
-                font-size: 1rem;
-            }
-
-            .profile-wrapper {
-                width: 150px;
-                height: 150px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2rem; }
+            .typing-text { font-size: 1rem; }
+            .profile-wrapper { width: 150px; height: 150px; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
 
-        /* Floating WhatsApp Button */
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -1036,32 +949,16 @@
             box-shadow: 2px 2px 25px rgba(37, 211, 102, 0.6);
         }
 
-        .whatsapp-float i {
-            margin-top: 3px;
-        }
+        .whatsapp-float i { margin-top: 3px; }
 
         @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 25px;
-            }
+            .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
         }
     </style>
 </head>
@@ -1071,14 +968,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-shield-alt"></i>
-                <span>XSpace Security+</span>
+                <i class="fas fa-code"></i>
+                <span>Charles Nderitu</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="burger">
@@ -1095,15 +994,14 @@
         <div class="hero">
             <div class="hero-content">
                 <div class="profile-wrapper">
-                    <img src="https://raw.githubusercontent.com/simalaX/charles/main/sim.jpeg" alt="Profile Picture" class="profile-pic">
+                    <img src="https://raw.githubusercontent.com/simalaX/charles/main/sim.jpeg" alt="Charles Nderitu" class="profile-pic">
                     <div class="profile-ring"></div>
                 </div>
-                <h1 class="glitch" data-text="Simala Watts">Simala Watts</h1>
+                <h1 class="glitch" data-text="Charles Nderitu">Charles Nderitu</h1>
                 <div class="typing-container">
-                    <p class="typing-text">Mobile App Developer | Ethical Hacker | Blockchain Specialist | Website
-                        Developer</p>
+                    <p class="typing-text" id="typing-roles">Software Engineer | Mobile App Developer | Ethical Hacker | Blockchain Developer | Full-Stack Developer</p>
                 </div>
-                <p class="subtitle">Securing the Digital Future, One Line of Code at a Time</p>
+                <p class="subtitle">Building Secure, Scalable & Innovative Software Solutions</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="cta-button primary">
                         <i class="fas fa-envelope"></i> Get in Touch
@@ -1117,20 +1015,15 @@
                 </div>
                 <div class="social-icons">
                     <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/charles-nderitu-3405ba301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/charles-nderitu-3405ba301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://x.com/SimalaWatts" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.instagram.com/simalawatts?igsh=d2lqOW9ianJ5cTRs" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank"><i
-                            class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/simalawatts?igsh=d2lqOW9ianJ5cTRs" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
+            <div class="mouse"><div class="wheel"></div></div>
             <p>Scroll Down</p>
         </div>
     </section>
@@ -1143,35 +1036,24 @@
             </h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p class="intro">Hello! I'm Simala Watts, a passionate technologist dedicated to building secure and
-                        innovative digital solutions.</p>
+                    <p class="intro">Hello! I'm Charles Nderitu, a passionate Software Engineer dedicated to building secure, scalable, and innovative digital solutions for real-world problems.</p>
 
-                    <p>I specialize in <strong>mobile application development</strong> using Kotlin, Java, Flutter, and
-                        Jetpack Compose,
-                        creating intuitive and performant Android and cross-platform apps. My expertise extends to
-                        implementing robust
-                        Firebase security, encryption protocols, and authentication systems.</p>
+                    <p>I specialize in <strong>full-stack software development</strong>, crafting everything from mobile applications to web platforms and backend APIs. My experience spans Android development with Kotlin and Jetpack Compose, web development with React and FastAPI, and database design with PostgreSQL.</p>
 
-                    <p>As an <strong>ethical hacker</strong>, I leverage tools like Python, Kali Linux, Wireshark,
-                        Metasploit, and Nmap to identify vulnerabilities and fortify applications against cyber threats.
-                        I'm passionate about penetration testing, threat detection, and security auditing.</p>
+                    <p>As an <strong>ethical hacker and security enthusiast</strong>, I leverage tools like Kali Linux, Metasploit, Wireshark, and Burp Suite to identify vulnerabilities and fortify applications against cyber threats — ensuring the software I build is both functional and resilient.</p>
 
-                    <p>My interest in <strong>blockchain technology</strong> drives me to explore decentralized
-                        applications, smart contracts, and Web3 development. I'm constantly learning about blockchain
-                        security, consensus mechanisms, and the future of decentralized systems.</p>
+                    <p>My work in <strong>blockchain and Web3 development</strong> includes building smart contracts, DApps, and NFT platforms using Solidity, Ethereum, and Hardhat — bringing decentralized thinking to real products.</p>
 
                     <div class="highlight-box">
                         <i class="fas fa-bullseye"></i>
-                        <p><strong>Mission:</strong> To bridge the gap between innovative technology and security,
-                            creating applications that are not only functional and beautiful but also resilient against
-                            emerging threats.</p>
+                        <p><strong>Mission:</strong> To bridge the gap between innovative technology and security, creating applications that are not only functional and beautiful but also resilient against emerging threats — with a strong focus on the African tech ecosystem.</p>
                     </div>
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
                         <i class="fas fa-mobile-alt"></i>
                         <h3>10+</h3>
-                        <p>Mobile Apps Built</p>
+                        <p>Apps Built</p>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-shield-halved"></i>
@@ -1193,17 +1075,75 @@
         </div>
     </section>
 
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span> Education
+            </h2>
+            <div class="education-timeline">
+                <div class="edu-item">
+                    <span class="edu-badge">2024– Present (Ongoing)</span>
+                    <h3>Bachelor of Science in Information Technology</h3>
+                    <div class="institution"><i class="fas fa-university" style="color:var(--primary);margin-right:0.4rem;"></i>Meru University of Science and Technology</div>
+                    <p class="edu-desc">Pursuing a BSc in Information Technology with a focus on software engineering, systems design, cybersecurity, and database management. Actively building full-stack projects and mobile applications alongside academic coursework, applying real-world skills to client work and personal products.</p>
+                    <div class="edu-courses">
+                        <span>Software Engineering</span>
+                        <span>Data Structures & Algorithms</span>
+                        <span>Database Systems</span>
+                        <span>Computer Networks</span>
+                        <span>Cybersecurity</span>
+                        <span>Mobile Development</span>
+                        <span>Web Technologies</span>
+                        <span>Operating Systems</span>
+                    </div>
+                </div>
+
+                <div class="edu-item">
+                    <span class="edu-badge">Continuous Learning</span>
+                    <h3>Self-Directed Technical Training</h3>
+                    <div class="institution"><i class="fas fa-laptop-code" style="color:var(--primary);margin-right:0.4rem;"></i>Online Platforms & Independent Study</div>
+                    <p class="edu-desc">Supplementing formal education with structured self-study in blockchain development, ethical hacking, Kotlin/Jetpack Compose, FastAPI, and cloud deployment. Regularly working through projects that go into production for real clients.</p>
+                    <div class="edu-courses">
+                        <span>Ethical Hacking (CEH Concepts)</span>
+                        <span>Solidity & Smart Contracts</span>
+                        <span>Jetpack Compose</span>
+                        <span>FastAPI & PostgreSQL</span>
+                        <span>React & TypeScript</span>
+                        <span>Cloud Deployment (Render)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-number">02.</span> Skills & Expertise
+                <span class="title-number">03.</span> Skills & Expertise
             </h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-mobile-screen-button"></i>
+                    <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Software Engineering</h3>
+                    <div class="skill-items">
+                        <span class="skill-tag"><i class="fas fa-check"></i> Python</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> JavaScript</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> TypeScript</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> React</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> FastAPI</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> Flask / Django</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> PostgreSQL</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> REST APIs</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> Git & GitHub</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> Linux</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> HTML5 / CSS3</span>
                     </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-icon"><i class="fas fa-mobile-screen-button"></i></div>
                     <h3>Mobile Development</h3>
                     <div class="skill-items">
                         <span class="skill-tag"><i class="fas fa-check"></i> Kotlin</span>
@@ -1214,16 +1154,13 @@
                         <span class="skill-tag"><i class="fas fa-check"></i> Android SDK</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Firebase</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> MVVM Architecture</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> Material Design</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Room Database</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Retrofit</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
+                    <div class="category-icon"><i class="fas fa-user-secret"></i></div>
                     <h3>Ethical Hacking & Security</h3>
                     <div class="skill-items">
                         <span class="skill-tag"><i class="fas fa-check"></i> Kali Linux</span>
@@ -1238,9 +1175,7 @@
                 </div>
 
                 <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
+                    <div class="category-icon"><i class="fas fa-cube"></i></div>
                     <h3>Blockchain & Web3</h3>
                     <div class="skill-items">
                         <span class="skill-tag"><i class="fas fa-check"></i> Solidity</span>
@@ -1248,27 +1183,9 @@
                         <span class="skill-tag"><i class="fas fa-check"></i> Ethereum</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Web3.js</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> DApp Development</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> NFT Standards</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> Blockchain Security</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> NFT Standards (ERC-721)</span>
                         <span class="skill-tag"><i class="fas fa-check"></i> Hardhat</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="category-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag"><i class="fas fa-check"></i> Website Developer</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> HTML5</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> CSS3</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> JavaScript</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> Python</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> Flask/Django</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> REST APIs</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> Git & GitHub</span>
-                        <span class="skill-tag"><i class="fas fa-check"></i> Linux</span>
+                        <span class="skill-tag"><i class="fas fa-check"></i> IPFS</span>
                     </div>
                 </div>
             </div>
@@ -1279,59 +1196,40 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-number">03.</span> Featured Projects
+                <span class="title-number">04.</span> Featured Projects
             </h2>
             <div class="projects-grid">
+
                 <div class="project-card featured">
                     <div class="project-header">
-                        <i class="fas fa-folder-open"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                         <div class="project-links">
-                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/simalaX/Garage-Locator" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>SecureVault - Android App</h3>
-                    <p>A comprehensive password management application built with Kotlin and Jetpack Compose. Features
-                        AES-256 encryption, biometric authentication, and Firebase cloud backup with end-to-end
-                        encryption.</p>
+                    <h3>Garage Locator</h3>
+                    <p>A GPS-based Android app that helps drivers find nearby garages and auto repair shops in real time. Built with Kotlin and Jetpack Compose, it features live map integration, garage filtering by service type, booking functionality, and Firebase authentication — solving a practical mobility problem in the Kenyan market.</p>
                     <div class="project-tech">
                         <span>Kotlin</span>
                         <span>Jetpack Compose</span>
                         <span>Firebase</span>
-                        <span>Encryption</span>
+                        <span>Google Maps API</span>
+                        <span>GPS / Location</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <i class="fas fa-folder-open"></i>
+                        <i class="fas fa-vote-yea"></i>
                         <div class="project-links">
-                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/simalaX/EduVote" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>Network Vulnerability Scanner</h3>
-                    <p>Python-based automated security scanner using Nmap and custom scripts to detect vulnerabilities,
-                        open ports, and potential security risks in network infrastructure.</p>
-                    <div class="project-tech">
-                        <span>Python</span>
-                        <span>Nmap</span>
-                        <span>Kali Linux</span>
-                        <span>Wireshark</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>DeFi Token Platform</h3>
-                    <p>Decentralized finance platform with ERC-20 token, staking mechanism, and yield farming features.
-                        Built with Solidity smart contracts and React frontend.</p>
+                    <h3>EduVote — Web3 Voting Platform</h3>
+                    <p>A blockchain-based voting application built for secure, transparent school and college elections. Leverages smart contracts on Ethereum to ensure votes are immutably recorded and tamper-proof. Features wallet-based authentication, real-time vote tallying, and an education-focused UI promoting civic engagement.</p>
                     <div class="project-tech">
                         <span>Solidity</span>
+                        <span>Hardhat</span>
                         <span>Web3.js</span>
                         <span>Ethereum</span>
                         <span>React</span>
@@ -1340,56 +1238,133 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <i class="fas fa-folder-open"></i>
+                        <i class="fas fa-home"></i>
                         <div class="project-links">
-                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/simalaX/popote-fronted" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>Penetration Testing Toolkit</h3>
-                    <p>Custom collection of Python scripts for ethical hacking, including SQL injection testers, XSS
-                        scanners, and automated reconnaissance tools.</p>
+                    <h3>Popote Listings — Property Marketplace</h3>
+                    <p>The React frontend for Popote Listings, a Kenyan property marketplace that enables users to browse, filter, and list properties for sale and rent. Features category-based browsing, search integration, image galleries, an admin panel, and WhatsApp inquiry flow. Connected to a FastAPI + PostgreSQL backend deployed on Render.</p>
                     <div class="project-tech">
-                        <span>Python</span>
-                        <span>Metasploit</span>
-                        <span>Burp Suite</span>
-                        <span>OWASP</span>
+                        <span>React</span>
+                        <span>FastAPI</span>
+                        <span>PostgreSQL</span>
+                        <span>Render</span>
+                        <span>TypeScript</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <i class="fas fa-folder-open"></i>
+                        <i class="fas fa-robot"></i>
                         <div class="project-links">
-                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/simalaX/Ver" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>NFT Marketplace</h3>
-                    <p>Full-stack NFT marketplace allowing users to mint, buy, and sell digital assets. Implements
-                        ERC-721 standards with IPFS storage integration.</p>
-                    <div class="project-tech">
-                        <span>Solidity</span>
-                        <span>IPFS</span>
-                        <span>Next.js</span>
-                        <span>Hardhat</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <i class="fas fa-folder-open"></i>
-                        <div class="project-links">
-                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Secure Chat Application</h3>
-                    <p>End-to-end encrypted messaging app for Android with self-destructing messages, biometric lock,
-                        and zero-knowledge architecture.</p>
+                    <h3>Vera — AI Assistant App</h3>
+                    <p>A Kotlin-based AI personal assistant Android app powered by conversational AI. Vera handles natural language queries, task automation, and on-demand information retrieval with a clean Jetpack Compose UI. Designed with mobile-first UX and local-context intelligence for the Kenyan market.</p>
                     <div class="project-tech">
                         <span>Kotlin</span>
-                        <span>Signal Protocol</span>
+                        <span>Jetpack Compose</span>
+                        <span>AI / NLP</span>
                         <span>Firebase</span>
-                        <span>E2EE</span>
+                        <span>Android SDK</span>
                     </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-seedling"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/simalaX/smartFarm-Kotlin" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>SmartFarm — Weather & Finance for Farmers</h3>
+                    <p>A Kotlin Android application serving as a smart weather and finance companion for farmers. Provides real-time weather forecasts, crop advisory based on conditions, market price tracking, and farm expense management — built to improve agricultural decision-making for smallholder farmers in Kenya.</p>
+                    <div class="project-tech">
+                        <span>Kotlin</span>
+                        <span>Jetpack Compose</span>
+                        <span>Weather API</span>
+                        <span>Firebase</span>
+                        <span>MVVM</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-shield-halved"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>SecureVault — Password Manager</h3>
+                    <p>A comprehensive password management Android app with AES-256 encryption, biometric authentication, and Firebase cloud backup with end-to-end encryption. Built with Kotlin and Jetpack Compose for a modern, secure user experience.</p>
+                    <div class="project-tech">
+                        <span>Kotlin</span>
+                        <span>Jetpack Compose</span>
+                        <span>AES-256</span>
+                        <span>Firebase</span>
+                        <span>Biometrics</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span> Experience & Involvement
+            </h2>
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-code"></i></div>
+                    <h3>Freelance Software Engineer</h3>
+                    <div class="exp-company">Independent / Remote</div>
+                    <div class="exp-period"><i class="fas fa-calendar"></i> 2024 – Present</div>
+                    <p>Designing and delivering full-stack web and mobile applications for clients across Kenya. Work includes property platforms, AI apps, business websites, and API development. Managing full project lifecycle from discovery to deployment.</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Android Developer</h3>
+                    <div class="exp-company">Personal & Client Projects</div>
+                    <div class="exp-period"><i class="fas fa-calendar"></i> 2024 – Present</div>
+                    <p>Built and shipped multiple Android applications using Kotlin and Jetpack Compose. Specializing in GPS-based apps, AI assistants, farm-tech solutions, and marketplace platforms targeting the Kenyan market.</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Security Researcher</h3>
+                    <div class="exp-company">Independent Research</div>
+                    <div class="exp-period"><i class="fas fa-calendar"></i> 2024 – Present</div>
+                    <p>Conducting penetration testing, vulnerability assessments, and security audits using Kali Linux, Metasploit, Burp Suite, and Nmap. Focused on web application security, mobile app hardening, and network infrastructure analysis.</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-cube"></i></div>
+                    <h3>Blockchain Developer</h3>
+                    <div class="exp-company">Web3 Projects</div>
+                    <div class="exp-period"><i class="fas fa-calendar"></i> 2024 – Present</div>
+                    <p>Developing decentralized applications, smart contracts, and Web3 platforms using Solidity and Hardhat. Projects include a blockchain voting platform for educational institutions and DeFi/NFT marketplace implementations.</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>BSc IT Student</h3>
+                    <div class="exp-company">Meru University of Science and Technology</div>
+                    <div class="exp-period"><i class="fas fa-calendar"></i> 2024 – Present</div>
+                    <p>Pursuing a Bachelor of Science in Information Technology. Actively applying classroom concepts to real-world client projects in parallel, building a strong foundation in software systems, networks, and security.</p>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Open Source Contributor</h3>
+                    <div class="exp-company">GitHub: @simalaX</div>
+                    <div class="exp-period"><i class="fas fa-calendar"></i> 2024 – Present</div>
+                    <p>Maintaining open-source repositories covering mobile apps, Web3 tools, and security utilities. Committed to knowledge sharing and building tools that address real problems in the Kenyan and broader African tech ecosystem.</p>
                 </div>
             </div>
         </div>
@@ -1399,14 +1374,12 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-number">04.</span> Get In Touch
+                <span class="title-number">06.</span> Get In Touch
             </h2>
             <div class="contact-content">
                 <div class="contact-text">
                     <h3>Let's Build Something Amazing Together</h3>
-                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                        vision. Whether you need a secure mobile application, blockchain solution, or security
-                        consultation, feel free to reach out!</p>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you need a secure mobile application, a web platform, a blockchain solution, or a security consultation — feel free to reach out!</p>
                 </div>
                 <div class="contact-methods">
                     <a href="mailto:simalawatts111@gmail.com" class="contact-card">
@@ -1414,8 +1387,7 @@
                         <h4>Email</h4>
                         <p>simalawatts111@gmail.com</p>
                     </a>
-                    <a href="https://www.linkedin.com/in/charles-nderitu-3405ba301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                        target="_blank" class="contact-card">
+                    <a href="https://www.linkedin.com/in/charles-nderitu-3405ba301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="contact-card">
                         <i class="fab fa-linkedin"></i>
                         <h4>LinkedIn</h4>
                         <p>Charles Nderitu</p>
@@ -1425,8 +1397,7 @@
                         <h4>GitHub</h4>
                         <p>@simalaX</p>
                     </a>
-                    <a href="https://www.instagram.com/simalawatts?igsh=d2lqOW9ianJ5cTRs" target="_blank"
-                        class="contact-card">
+                    <a href="https://www.instagram.com/simalawatts?igsh=d2lqOW9ianJ5cTRs" target="_blank" class="contact-card">
                         <i class="fab fa-instagram"></i>
                         <h4>Instagram</h4>
                         <p>@simalawatts</p>
@@ -1436,11 +1407,10 @@
                         <h4>X (Twitter)</h4>
                         <p>@SimalaWatts</p>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank"
-                        class="contact-card">
+                    <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank" class="contact-card">
                         <i class="fab fa-facebook"></i>
                         <h4>Facebook</h4>
-                        <p>Simala Watts</p>
+                        <p>Charles Nderitu</p>
                     </a>
                 </div>
             </div>
@@ -1450,17 +1420,14 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>Designed & Built by Simala Watts</p>
+            <p>Designed & Built by Charles Nderitu</p>
             <p>© 2026 All rights reserved.</p>
             <div class="footer-links">
                 <a href="https://github.com/simalaX" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/charles-nderitu-3405ba301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                    target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/charles-nderitu-3405ba301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://x.com/SimalaWatts" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com/simalawatts?igsh=d2lqOW9ianJ5cTRs" target="_blank"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank"><i
-                        class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/simalawatts?igsh=d2lqOW9ianJ5cTRs" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>
@@ -1470,7 +1437,6 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // Mobile Navigation
         const burger = document.querySelector('.burger');
@@ -1480,7 +1446,6 @@
         burger.addEventListener('click', () => {
             nav.classList.toggle('active');
             burger.classList.toggle('active');
-
             navLinks.forEach((link, index) => {
                 if (link.style.animation) {
                     link.style.animation = '';
@@ -1497,60 +1462,53 @@
             });
         });
 
-        // Navbar Scroll Effect
+        // Navbar scroll
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.pageYOffset > 100);
         });
 
-        // Smooth Scroll
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             });
         });
 
         // Typing Animation
-        const typingText = document.querySelector('.typing-text');
-        if (typingText) {
-            const text = typingText.textContent;
-            typingText.textContent = '';
-            let i = 0;
+        const typingEl = document.getElementById('typing-roles');
+        if (typingEl) {
+            const roles = ['Software Engineer', 'Android Developer', 'Ethical Hacker', 'Blockchain Developer', 'Full-Stack Developer'];
+            let roleIndex = 0, charIndex = 0, deleting = false;
 
-            function typeWriter() {
-                if (i < text.length) {
-                    typingText.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
+            function typeRole() {
+                const current = roles[roleIndex];
+                if (!deleting) {
+                    typingEl.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === current.length) {
+                        deleting = true;
+                        setTimeout(typeRole, 2000);
+                        return;
+                    }
                 } else {
-                    setTimeout(() => {
-                        typingText.textContent = '';
-                        i = 0;
-                        typeWriter();
-                    }, 3000);
+                    typingEl.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+                    if (charIndex === 0) {
+                        deleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                    }
                 }
+                setTimeout(typeRole, deleting ? 60 : 100);
             }
 
-            setTimeout(typeWriter, 1000);
+            setTimeout(typeRole, 800);
         }
 
-        // Scroll Reveal Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // Scroll Reveal
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1560,48 +1518,33 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('section, .skill-category, .project-card, .stat-card, .contact-card').forEach(el => {
+        document.querySelectorAll('section, .skill-category, .project-card, .stat-card, .contact-card, .edu-item, .exp-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
 
-        // Particle Background
+        // Particles
         function createParticles() {
-            const particlesContainer = document.getElementById('particles-js');
-            if (!particlesContainer) return;
-
+            const container = document.getElementById('particles-js');
+            if (!container) return;
             for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                const size = Math.random() * 3 + 1;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.borderRadius = '50%';
-                particle.style.background = 'rgba(0, 255, 135, 0.5)';
-                particle.style.boxShadow = '0 0 10px rgba(0, 255, 135, 0.8)';
-                particle.style.animation = `float ${Math.random() * 20 + 10}s infinite ease-in-out`;
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particlesContainer.appendChild(particle);
+                const p = document.createElement('div');
+                p.style.cssText = `position:absolute;left:${Math.random()*100}%;top:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;border-radius:50%;background:rgba(0,255,135,0.5);box-shadow:0 0 10px rgba(0,255,135,0.8);animation:float ${Math.random()*20+10}s infinite ease-in-out;animation-delay:${Math.random()*5}s`;
+                container.appendChild(p);
             }
         }
         createParticles();
 
-        // Stat Counter Animation
-        function animateCounter(element, target) {
+        // Stat Counter
+        function animateCounter(el, target) {
             let current = 0;
-            const increment = target / 100;
+            const inc = target / 100;
             const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.ceil(current) + '+';
-                }
+                current += inc;
+                if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
+                else el.textContent = Math.ceil(current) + '+';
             }, 20);
         }
 
@@ -1616,283 +1559,358 @@
             });
         }, { threshold: 0.5 });
 
-        document.querySelectorAll('.stat-card').forEach(card => {
-            statObserver.observe(card);
-        });
+        document.querySelectorAll('.stat-card').forEach(card => statObserver.observe(card));
 
-        // Active Navigation Link
+        // Active nav
         const sections = document.querySelectorAll('section');
         const navItems = document.querySelectorAll('.nav-links a');
-
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+                if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
             });
-
             navItems.forEach(item => {
                 item.classList.remove('active');
-                if (item.getAttribute('href').slice(1) === current) {
-                    item.classList.add('active');
-                }
+                if (item.getAttribute('href').slice(1) === current) item.classList.add('active');
             });
         });
 
-        // Glitch Effect
+        // Glitch
         const glitchText = document.querySelector('.glitch');
         if (glitchText) {
-            glitchText.addEventListener('mouseenter', function () {
-                this.style.animation = 'glitch 0.3s infinite';
-            });
-            glitchText.addEventListener('mouseleave', function () {
-                this.style.animation = 'glitch-skew 2s infinite';
-            });
+            glitchText.addEventListener('mouseenter', function() { this.style.animation = 'glitch 0.3s infinite'; });
+            glitchText.addEventListener('mouseleave', function() { this.style.animation = 'glitch-skew 2s infinite'; });
         }
 
-        // Cursor Trail (Desktop only)
+        // Cursor Trail
         if (window.innerWidth > 768) {
             document.addEventListener('mousemove', (e) => {
                 const trail = document.createElement('div');
-                trail.style.position = 'absolute';
-                trail.style.left = e.pageX + 'px';
-                trail.style.top = e.pageY + 'px';
-                trail.style.width = '5px';
-                trail.style.height = '5px';
-                trail.style.borderRadius = '50%';
-                trail.style.background = 'rgba(0, 255, 135, 0.5)';
-                trail.style.pointerEvents = 'none';
-                trail.style.animation = 'trailFade 1s ease-out forwards';
+                trail.style.cssText = `position:absolute;left:${e.pageX}px;top:${e.pageY}px;width:5px;height:5px;border-radius:50%;background:rgba(0,255,135,0.5);pointer-events:none;animation:trailFade 1s ease-out forwards;`;
                 document.body.appendChild(trail);
                 setTimeout(() => trail.remove(), 1000);
             });
         }
 
-        // Console Easter Egg
-        console.log('%c👋 Hello there!', 'color: #00ff87; font-size: 24px; font-weight: bold;');
-        console.log('%cInterested in the code? Check out my GitHub!', 'color: #00d9ff; font-size: 14px;');
-        console.log('%chttps://github.com/simalaX', 'color: #ffffff; font-size: 12px;');
+        console.log('%c👋 Hi! I am Charles Nderitu', 'color: #00ff87; font-size: 20px; font-weight: bold;');
+        console.log('%cCheck out my GitHub: https://github.com/simalaX', 'color: #00d9ff; font-size: 13px;');
     </script>
 
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
-        function generateCV() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    function generateCV() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+        const W = 210;
+        const M = 14; // left margin
 
-            const W = 210;
-            const primaryGreen = [0, 220, 120];
-            const darkBg = [10, 14, 39];
-            const textDark = [30, 30, 50];
-            const textGrey = [100, 105, 130];
-            const white = [255, 255, 255];
-            const lightLine = [220, 230, 240];
+        // Colors
+        const green   = [0, 220, 120];
+        const cyan    = [0, 200, 230];
+        const darkBg  = [10, 14, 39];
+        const darkText = [25, 28, 55];
+        const grey    = [100, 108, 130];
+        const white   = [255, 255, 255];
+        const line    = [215, 225, 235];
+        const tagBg   = [228, 248, 238];
 
-            // ── DYNAMICALLY READ FROM THE PAGE ──────────────────────────
+        let y = 0;
 
-            // Name
-            const name = (document.querySelector('.hero h1')?.textContent || 'Simala Watts').trim().toUpperCase();
-
-            // Typing text (roles)
-            const roles = (document.querySelector('.typing-text')?.textContent || '').trim();
-
-            // About paragraphs
-            const aboutParas = [...document.querySelectorAll('.about-text p')].map(p => p.textContent.trim()).filter(Boolean);
-            const aboutText = aboutParas.join(' ');
-
-            // Mission highlight
-            const mission = document.querySelector('.highlight-box p')?.textContent?.trim() || '';
-
-            // Skills — each category title + tags
-            const skillCols = [...document.querySelectorAll('.skill-category')].map(cat => ({
-                title: cat.querySelector('h3')?.textContent?.trim() || '',
-                items: [...cat.querySelectorAll('.skill-tag')].map(t => t.textContent.replace(/[✓]/g, '').trim())
-            }));
-
-            // Projects
-            const projects = [...document.querySelectorAll('.project-card')].map(card => ({
-                name: card.querySelector('h3')?.textContent?.trim() || '',
-                tech: [...card.querySelectorAll('.project-tech span')].map(s => s.textContent.trim()).join(' · '),
-                desc: card.querySelector('p')?.textContent?.trim() || ''
-            })).filter(p => p.name);
-
-            // Stats
-            const stats = [...document.querySelectorAll('.stat-card')].map(s => {
-                const num = s.querySelector('h3')?.textContent?.trim() || '';
-                const label = s.querySelector('p')?.textContent?.trim() || '';
-                return `${num} ${label}`;
-            });
-
-            // Contact links
-            const emailEl = document.querySelector('a[href^="mailto:"]');
-            const email = emailEl ? emailEl.href.replace('mailto:', '') : '';
-            const githubEl = document.querySelector('a[href*="github.com/simala"]');
-            const github = githubEl ? githubEl.href.replace('https://', '') : '';
-            const twitterEl = document.querySelector('a[href*="x.com/"]');
-            const twitter = twitterEl ? twitterEl.href.replace('https://', '') : '';
-            const waEl = document.querySelector('a[href*="wa.me"]');
-            const whatsapp = waEl ? waEl.href.replace('https://', '') : '';
-
-            // ── HELPERS ──────────────────────────────────────────────────
-            function checkPage(yPos, needed = 20) {
-                if (yPos + needed > 278) { doc.addPage(); return 20; }
-                return yPos;
-            }
-
-            function sectionTitle(label, yPos) {
-                yPos = checkPage(yPos, 18);
-                doc.setFillColor(...primaryGreen);
-                doc.rect(14, yPos, 3, 6, 'F');
-                doc.setTextColor(...textDark);
-                doc.setFontSize(12);
-                doc.setFont('helvetica', 'bold');
-                doc.text(label.toUpperCase(), 20, yPos + 5);
-                doc.setDrawColor(...lightLine);
-                doc.setLineWidth(0.4);
-                doc.line(20, yPos + 7, W - 14, yPos + 7);
-                return yPos + 14;
-            }
-
-            function bodyText(text, xPos, yPos, maxW) {
-                yPos = checkPage(yPos, 10);
-                doc.setTextColor(...textGrey);
-                doc.setFontSize(9);
-                doc.setFont('helvetica', 'normal');
-                const lines = doc.splitTextToSize(text, maxW || W - 28);
-                lines.forEach(line => {
-                    yPos = checkPage(yPos, 6);
-                    doc.text(line, xPos, yPos);
-                    yPos += 5;
-                });
-                return yPos;
-            }
-
-            function tag(label, xPos, yPos) {
-                doc.setFontSize(7.5);
-                const tw = doc.getTextWidth(label) + 5;
-                doc.setFillColor(230, 248, 240);
-                doc.setDrawColor(...primaryGreen);
-                doc.setLineWidth(0.3);
-                doc.roundedRect(xPos, yPos - 3.5, tw, 5.5, 1.2, 1.2, 'FD');
-                doc.setTextColor(...textDark);
-                doc.setFont('helvetica', 'normal');
-                doc.text(label, xPos + 2.5, yPos + 0.8);
-                return tw + 2;
-            }
-
-            function tagRow(items, startX, yPos) {
-                let x = startX;
-                items.forEach(item => {
-                    doc.setFontSize(7.5);
-                    const tw = doc.getTextWidth(item) + 7;
-                    if (x + tw > W - 14) { x = startX; yPos += 7; yPos = checkPage(yPos, 8); }
-                    x += tag(item, x, yPos);
-                });
-                return yPos + 8;
-            }
-
-            // ── HEADER ───────────────────────────────────────────────────
-            doc.setFillColor(...darkBg);
-            doc.rect(0, 0, W, 50, 'F');
-
-            doc.setTextColor(...primaryGreen);
-            doc.setFontSize(24);
-            doc.setFont('helvetica', 'bold');
-            doc.text(name, 14, 18);
-
-            doc.setTextColor(...white);
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'normal');
-            const roleLines = doc.splitTextToSize(roles, W - 28);
-            doc.text(roleLines, 14, 27);
-
-            doc.setTextColor(...primaryGreen);
-            doc.setFontSize(8);
-            const contactParts = [email, github, twitter, whatsapp].filter(Boolean);
-            doc.text(contactParts.join('   |   '), 14, 43);
-
-            doc.setFillColor(...primaryGreen);
-            doc.rect(0, 50, W, 1.5, 'F');
-
-            let y = 60;
-
-            // ── ABOUT ────────────────────────────────────────────────────
-            y = sectionTitle('About Me', y);
-            y = bodyText(aboutText, 14, y);
-            if (mission) {
-                y += 2;
-                y = bodyText('Mission: ' + mission, 14, y);
-            }
-            y += 4;
-
-            // ── SKILLS ──────────────────────────────────────────────────
-            y = sectionTitle('Skills & Expertise', y);
-            skillCols.forEach(col => {
-                y = checkPage(y, 20);
-                doc.setTextColor(...textDark);
-                doc.setFontSize(9.5);
-                doc.setFont('helvetica', 'bold');
-                doc.text(col.title, 14, y);
-                y += 7;
-                y = tagRow(col.items, 14, y);
-                y += 2;
-            });
-            y += 2;
-
-            // ── PROJECTS ─────────────────────────────────────────────────
-            y = sectionTitle('Featured Projects', y);
-            projects.forEach(p => {
-                y = checkPage(y, 22);
-                doc.setTextColor(...textDark);
-                doc.setFontSize(10);
-                doc.setFont('helvetica', 'bold');
-                doc.text('▸ ' + p.name, 14, y);
-                y += 5;
-                if (p.tech) {
-                    doc.setTextColor(...primaryGreen);
-                    doc.setFontSize(8);
-                    doc.setFont('helvetica', 'italic');
-                    doc.text(p.tech, 20, y);
-                    y += 5;
-                }
-                y = bodyText(p.desc, 20, y, W - 34);
-                y += 3;
-            });
-
-            // ── STATS ────────────────────────────────────────────────────
-            y = checkPage(y, 24);
-            y = sectionTitle('Key Stats', y);
-            const colW = (W - 28) / Math.min(stats.length, 4);
-            let sx = 14;
-            stats.slice(0, 4).forEach(s => {
-                doc.setFillColor(...darkBg);
-                doc.roundedRect(sx, y - 4, colW - 2, 12, 2, 2, 'F');
-                doc.setTextColor(...primaryGreen);
-                doc.setFontSize(8);
-                doc.setFont('helvetica', 'bold');
-                const lines = doc.splitTextToSize(s, colW - 6);
-                doc.text(lines, sx + 3, y + 3);
-                sx += colW;
-            });
-            y += 16;
-
-            // ── FOOTER ───────────────────────────────────────────────────
-            const pageCount = doc.internal.getNumberOfPages();
-            for (let i = 1; i <= pageCount; i++) {
-                doc.setPage(i);
-                doc.setFillColor(...darkBg);
-                doc.rect(0, 287, W, 10, 'F');
-                doc.setTextColor(...primaryGreen);
-                doc.setFontSize(7.5);
-                doc.text(`${name} — ${email} — ${github}`, W / 2, 293, { align: 'center' });
-            }
-
-            doc.save('Simala_Watts_CV.pdf');
+        function checkPage(needed) {
+            if (y + needed > 278) { doc.addPage(); y = 18; }
         }
+
+        // ── HEADER ────────────────────────────────────────────────
+        // Dark header band
+        doc.setFillColor(...darkBg);
+        doc.rect(0, 0, W, 56, 'F');
+
+        // Green accent stripe
+        doc.setFillColor(...green);
+        doc.rect(0, 0, 4, 56, 'F');
+
+        // Name
+        doc.setTextColor(...green);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(26);
+        doc.text('CHARLES NDERITU', 12, 18);
+
+        // Title
+        doc.setTextColor(...cyan);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(11);
+        doc.text('Software Engineer  |  Mobile & Web Developer  |  Ethical Hacker  |  Blockchain Developer', 12, 27);
+
+        // Contact row
+        doc.setTextColor(180, 200, 190);
+        doc.setFontSize(8.2);
+        const contacts = [
+            '✉  simalawatts111@gmail.com',
+            '⌂  Nairobi, Kenya',
+            '⌗  github.com/simalaX',
+            '🐦  x.com/SimalaWatts',
+            '📞  wa.me/254718902699'
+        ];
+        doc.text(contacts.join('   '), 12, 37);
+
+        // LinkedIn
+        doc.text('🔗  linkedin.com/in/charles-nderitu-3405ba301', 12, 44);
+
+        // Tagline
+        doc.setTextColor(150, 170, 160);
+        doc.setFontSize(8);
+        doc.setFont('helvetica', 'italic');
+        doc.text('Building Secure, Scalable & Innovative Software Solutions', 12, 51);
+
+        y = 64;
+
+        // ── HELPER FUNCTIONS ──────────────────────────────────────
+        function sectionHead(label) {
+            checkPage(14);
+            doc.setFillColor(...green);
+            doc.rect(M, y, 3, 6, 'F');
+            doc.setTextColor(...darkText);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(11.5);
+            doc.text(label.toUpperCase(), M + 6, y + 5);
+            doc.setDrawColor(...line);
+            doc.setLineWidth(0.4);
+            doc.line(M + 6, y + 7, W - M, y + 7);
+            y += 14;
+        }
+
+        function bodyPara(text, indent, maxW) {
+            checkPage(8);
+            doc.setTextColor(...grey);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9);
+            const lines = doc.splitTextToSize(text, maxW || (W - M - indent - M));
+            lines.forEach(line => {
+                checkPage(6);
+                doc.text(line, indent, y);
+                y += 5;
+            });
+        }
+
+        function tags(items, indent) {
+            let x = indent;
+            doc.setFontSize(7.5);
+            items.forEach(item => {
+                const tw = doc.getTextWidth(item) + 7;
+                if (x + tw > W - M) { x = indent; y += 7; checkPage(8); }
+                doc.setFillColor(...tagBg);
+                doc.setDrawColor(...green);
+                doc.setLineWidth(0.25);
+                doc.roundedRect(x, y - 3.8, tw, 5.5, 1.2, 1.2, 'FD');
+                doc.setTextColor(...darkText);
+                doc.text(item, x + 3.5, y + 0.8);
+                x += tw + 2;
+            });
+            y += 8;
+        }
+
+        // ── PROFESSIONAL SUMMARY ──────────────────────────────────
+        sectionHead('Professional Summary');
+        bodyPara(
+            'Results-driven Software Engineer with hands-on experience building full-stack web applications, ' +
+            'native Android apps, blockchain platforms, and security tools. Currently pursuing a BSc in Information Technology ' +
+            'at Meru University of Science and Technology. Passionate about solving real-world problems in the African tech ' +
+            'ecosystem through clean, secure, and scalable code. Experienced in Kotlin/Jetpack Compose, React, FastAPI, ' +
+            'PostgreSQL, Solidity, and ethical hacking tools.',
+            M, W - 2*M
+        );
+        y += 3;
+
+        // ── EDUCATION ─────────────────────────────────────────────
+        sectionHead('Education');
+
+        // Entry 1
+        checkPage(28);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10.5);
+        doc.setTextColor(...darkText);
+        doc.text('Bachelor of Science in Information Technology', M, y);
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.setTextColor(...[0, 180, 120]);
+        doc.text('Meru University of Science and Technology', M, y + 5);
+
+        doc.setTextColor(...grey);
+        doc.setFontSize(8.5);
+        doc.text('2023 – Present  (Ongoing)  |  Meru, Kenya', M, y + 10);
+
+        y += 15;
+        bodyPara(
+            'Pursuing a comprehensive degree covering software engineering, computer networks, database systems, ' +
+            'cybersecurity, mobile development, and web technologies. Concurrently delivering client projects that ' +
+            'apply academic concepts to real production systems.',
+            M + 4, W - 2*M - 4
+        );
+        tags(['Software Engineering', 'Data Structures', 'Computer Networks', 'Database Systems', 'Cybersecurity', 'Mobile Dev', 'Operating Systems'], M + 4);
+
+        y += 2;
+
+        // ── TECHNICAL SKILLS ──────────────────────────────────────
+        sectionHead('Technical Skills');
+
+        const skillBlocks = [
+            { title: 'Software Engineering & Web', items: ['Python', 'JavaScript', 'TypeScript', 'React', 'FastAPI', 'Flask/Django', 'PostgreSQL', 'REST APIs', 'HTML5/CSS3', 'Git & GitHub', 'Linux'] },
+            { title: 'Mobile Development', items: ['Kotlin', 'Java', 'Jetpack Compose', 'Android SDK', 'Flutter/Dart', 'Firebase', 'MVVM', 'Room DB', 'Retrofit'] },
+            { title: 'Ethical Hacking & Security', items: ['Kali Linux', 'Metasploit', 'Nmap', 'Wireshark', 'Burp Suite', 'OWASP Top 10', 'Penetration Testing', 'Cryptography'] },
+            { title: 'Blockchain & Web3', items: ['Solidity', 'Smart Contracts', 'Ethereum', 'Web3.js', 'DApp Dev', 'ERC-721/ERC-20', 'Hardhat', 'IPFS'] },
+        ];
+
+        skillBlocks.forEach(block => {
+            checkPage(22);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9.5);
+            doc.setTextColor(...darkText);
+            doc.text(block.title, M, y);
+            y += 6;
+            tags(block.items, M + 4);
+            y += 1;
+        });
+
+        y += 2;
+
+        // ── PROJECTS ─────────────────────────────────────────────
+        sectionHead('Projects');
+
+        const projects = [
+            {
+                name: 'Garage Locator',
+                url: 'github.com/simalaX/Garage-Locator',
+                stack: 'Kotlin · Jetpack Compose · Firebase · Google Maps API',
+                desc: 'GPS-based Android app helping drivers find nearby garages and auto repair shops in real time. Features live maps, service filtering, and Firebase authentication — addressing a real mobility gap in the Kenyan market.'
+            },
+            {
+                name: 'EduVote — Web3 Voting Platform',
+                url: 'github.com/simalaX/EduVote',
+                stack: 'Solidity · Hardhat · Web3.js · Ethereum · React',
+                desc: 'Blockchain-based voting platform for secure, transparent school and college elections. Smart contracts on Ethereum ensure immutable, tamper-proof vote records with wallet-based authentication.'
+            },
+            {
+                name: 'Popote Listings — Property Marketplace',
+                url: 'github.com/simalaX/popote-fronted',
+                stack: 'React · FastAPI · PostgreSQL · TypeScript · Render',
+                desc: 'Kenyan property marketplace with category browsing, search, image galleries, admin panel, and WhatsApp inquiry flow. React frontend connected to a production FastAPI + PostgreSQL backend.'
+            },
+            {
+                name: 'Vera — AI Assistant App',
+                url: 'github.com/simalaX/Ver',
+                stack: 'Kotlin · Jetpack Compose · AI/NLP · Firebase',
+                desc: 'Kotlin AI personal assistant for Android with conversational NLP, task automation, and on-demand information retrieval. Designed for the Kenyan market with mobile-first UX.'
+            },
+            {
+                name: 'SmartFarm — Weather & Finance Companion',
+                url: 'github.com/simalaX/smartFarm-Kotlin',
+                stack: 'Kotlin · Jetpack Compose · Weather API · Firebase · MVVM',
+                desc: 'Android app providing real-time weather forecasts, crop advisory, market price tracking, and farm expense management for smallholder farmers in Kenya.'
+            },
+            {
+                name: 'SecureVault — Password Manager',
+                url: 'github.com/simalaX',
+                stack: 'Kotlin · Jetpack Compose · AES-256 · Firebase · Biometrics',
+                desc: 'Comprehensive Android password manager with AES-256 encryption, biometric lock, and end-to-end encrypted Firebase cloud backup.'
+            }
+        ];
+
+        projects.forEach(p => {
+            checkPage(30);
+            // Project title + URL
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(...darkText);
+            doc.text('▸  ' + p.name, M, y);
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8);
+            doc.setTextColor(...green);
+            doc.text(p.url, W - M - doc.getTextWidth(p.url), y);
+
+            y += 5;
+            doc.setTextColor(...cyan);
+            doc.setFontSize(8);
+            doc.setFont('helvetica', 'italic');
+            doc.text(p.stack, M + 4, y);
+            y += 5;
+            bodyPara(p.desc, M + 4, W - 2*M - 4);
+            y += 2;
+        });
+
+        // ── EXPERIENCE ────────────────────────────────────────────
+        sectionHead('Experience');
+
+        const experiences = [
+            {
+                title: 'Freelance Software Engineer',
+                org: 'Independent / Remote',
+                period: '2024 – Present',
+                desc: 'Designing and delivering full-stack web and mobile applications for clients in Kenya. Managing complete project lifecycles from discovery to deployment, including property platforms, AI apps, and business websites.'
+            },
+            {
+                title: 'Android Developer',
+                org: 'Personal & Client Projects',
+                period: '2024 – Present',
+                desc: 'Built and shipped multiple production Android apps using Kotlin and Jetpack Compose — including GPS-based tools, AI assistants, agri-tech solutions, and property marketplaces.'
+            },
+            {
+                title: 'Security Researcher',
+                org: 'Independent Research',
+                period: '2024 – Present',
+                desc: 'Conducting penetration testing and vulnerability assessments using Kali Linux, Metasploit, Burp Suite, and Nmap. Focused on web application security, mobile app hardening, and network infrastructure.'
+            },
+            {
+                title: 'Blockchain Developer',
+                org: 'Web3 Projects',
+                period: '2024 – Present',
+                desc: 'Developing decentralized applications and smart contracts using Solidity and Hardhat on Ethereum, including blockchain voting systems, DeFi platforms, and NFT marketplaces.'
+            },
+        ];
+
+        experiences.forEach(exp => {
+            checkPage(24);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(...darkText);
+            doc.text(exp.title, M, y);
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8.5);
+            doc.setTextColor(...[0, 180, 120]);
+            doc.text(exp.org, M, y + 5);
+
+            doc.setTextColor(...grey);
+            doc.setFontSize(8);
+            doc.text(exp.period, W - M - doc.getTextWidth(exp.period), y + 5);
+
+            y += 10;
+            bodyPara(exp.desc, M + 4, W - 2*M - 4);
+            y += 2;
+        });
+
+        // ── FOOTER ────────────────────────────────────────────────
+        const pageCount = doc.internal.getNumberOfPages();
+        for (let i = 1; i <= pageCount; i++) {
+            doc.setPage(i);
+            doc.setFillColor(...darkBg);
+            doc.rect(0, 287, W, 10, 'F');
+            doc.setFillColor(...green);
+            doc.rect(0, 287, W, 0.8, 'F');
+            doc.setTextColor(...green);
+            doc.setFontSize(7.5);
+            doc.setFont('helvetica', 'normal');
+            doc.text(
+                `Charles Nderitu  |  simalawatts111@gmail.com  |  github.com/simalaX  |  Page ${i} of ${pageCount}`,
+                W / 2, 293,
+                { align: 'center' }
+            );
+        }
+
+        doc.save('Charles_Nderitu_CV.pdf');
+    }
     </script>
 </body>
-
 </html>
