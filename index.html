@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Charles Nderitu — Multidisciplinary Technologist</title>
+<meta name="description" content="Charles Nderitu: software engineering, digital products, cloud security and AI security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0d12;
+    --panel: #0e131b;
+    --panel-2: #121924;
+    --line: #1d2531;
+    --line-2: #2a3442;
+    --text: #e6e9ef;
+    --dim: #a0a9b8;
+    --mute: #6b7585;
+    --amber: #f2a94e;
+    --amber-2: #e8963a;
+    --purple: #8b7cf6;
+    --green: #34d399;
+    --sky: #60a5fa;
+    --head: 'Space Grotesk', system-ui, sans-serif;
+    --body: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --wrap: 1100px;
+    --nav-h: 64px;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); background: var(--bg); }
+
+  body {
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* faint grid and watermark behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+  }
+  .watermark {
+    position: fixed;
+    left: 50%;
+    bottom: -2vw;
+    transform: translateX(-50%);
+    font: 700 13vw/1 var(--head);
+    letter-spacing: -.04em;
+    white-space: nowrap;
+    color: rgba(255,255,255,.022);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main, footer, .nav { position: relative; z-index: 1; }
+
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
+
+  .wrap { width: min(var(--wrap), calc(100% - 2.5rem)); margin: 0 auto; }
+
+  /* progress */
+  .progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--amber); transform-origin: 0 50%; transform: scaleX(0); z-index: 200;
+  }
+
+  /* nav */
+  .nav {
+    position: sticky; top: 0; height: var(--nav-h);
+    display: flex; align-items: center;
+    background: rgba(10, 13, 18, .82);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .brand { font: 600 1.05rem var(--head); text-decoration: none; letter-spacing: -.01em; }
+  .brand span { color: var(--amber); }
+  .links { display: flex; gap: 1.6rem; list-style: none; }
+  .links a { font: 400 .8rem var(--mono); color: var(--dim); text-decoration: none; transition: color .25s; }
+  .links a:hover, .links a.active { color: var(--amber); }
+  .burger {
+    display: none; background: none; border: 1px solid var(--line-2); border-radius: 8px;
+    width: 38px; height: 36px; color: var(--text); cursor: pointer; font-size: 1rem;
+  }
+
+  /* windows (terminal-style cards) */
+  .win {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .win-h {
+    display: flex; align-items: center; gap: .6rem;
+    padding: .65rem 1rem;
+    background: var(--panel-2);
+    border-bottom: 1px solid var(--line);
+    font: 400 .76rem var(--mono);
+    color: var(--dim);
+  }
+  .win-h .dots { display: flex; gap: 6px; margin-right: .4rem; }
+  .win-h .dots i { width: 9px; height: 9px; border-radius: 50%; display: block; }
+  .win-h .dots i:nth-child(1) { background: var(--amber); }
+  .win-h .dots i:nth-child(2) { background: var(--purple); }
+  .win-h .dots i:nth-child(3) { background: var(--green); }
+  .win-h .path { display: flex; align-items: center; gap: .45rem; flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--mute); }
+  .win-h .path i { color: var(--purple); font-size: .75rem; }
+  .badge-live {
+    font: 400 .68rem var(--mono); color: var(--green);
+    border: 1px solid rgba(52, 211, 153, .35); background: rgba(52, 211, 153, .07);
+    padding: .15rem .5rem; border-radius: 5px; white-space: nowrap;
+  }
+  .win-b { padding: 1.4rem 1.5rem; }
+
+  /* hero */
+  .hero { padding: 4.5rem 0 3rem; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.3fr .7fr; gap: 3rem; align-items: center;
+    margin-bottom: 2.25rem;
+  }
+  .eyebrow {
+    display: inline-block; font: 400 .78rem var(--mono); color: var(--purple);
+    border: 1px solid rgba(139, 124, 246, .35); background: rgba(139, 124, 246, .08);
+    padding: .25rem .65rem; border-radius: 6px; margin-bottom: 1.4rem;
+  }
+  .hero h1 {
+    font: 700 clamp(2.9rem, 6.4vw, 4.8rem)/1 var(--head);
+    letter-spacing: -.035em; margin-bottom: 1rem;
+  }
+  .role { font: 400 1rem var(--mono); color: var(--amber); min-height: 1.6em; margin-bottom: 1.2rem; }
+  .caret {
+    display: inline-block; width: 8px; height: 1em; background: var(--amber);
+    vertical-align: -.15em; margin-left: 3px; animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero-sub { color: var(--dim); max-width: 46ch; margin-bottom: 2rem; font-size: 1.05rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font: 500 .92rem var(--head); text-decoration: none; cursor: pointer;
+    padding: .8rem 1.25rem; border-radius: 9px; border: 1px solid var(--line-2);
+    background: transparent; color: var(--text);
+    transition: background .25s, border-color .25s, color .25s, transform .25s;
+  }
+  .btn:hover { border-color: var(--dim); transform: translateY(-1px); }
+  .btn.amber { background: var(--amber); border-color: var(--amber); color: #1a1205; font-weight: 600; }
+  .btn.amber:hover { background: var(--amber-2); border-color: var(--amber-2); }
+
+  .portrait .win-b { padding: 0; }
+  .portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; filter: contrast(1.03) saturate(.92); }
+
+  /* terminal */
+  .term .win-h { font-size: .8rem; }
+  .term-body { padding: 1.5rem 1.6rem 1.6rem; font: 400 .92rem/1.7 var(--mono); }
+  .ln { color: var(--text); }
+  .ps { color: var(--green); }
+  .pc { color: var(--mute); }
+  .pd { color: var(--amber); }
+  .out { color: var(--dim); margin: .35rem 0 1.1rem; max-width: 92ch; }
+  .out-line { color: var(--dim); }
+  .cmd-label { color: var(--mute); font-size: .8rem; margin-top: 1.4rem; margin-bottom: .6rem; }
+  .cmds { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chip {
+    font: 400 .8rem var(--mono); color: var(--text); background: #0b0f15;
+    border: 1px solid var(--line-2); border-radius: 6px; padding: .38rem .7rem; cursor: pointer;
+    transition: border-color .2s, color .2s;
+  }
+  .chip::before { content: "$ "; color: var(--mute); }
+  .chip:hover, .chip.on { border-color: var(--amber); color: var(--amber); }
+  .term-log { max-height: 320px; overflow-y: auto; }
+  .term-log:empty { display: none; }
+  .entry { margin-top: .9rem; }
+  .entry .cmdline { color: var(--text); }
+  .entry .cmdline b { font-weight: 400; color: var(--green); }
+  .entry .result { color: var(--dim); margin-top: .2rem; white-space: pre-wrap; }
+
+  /* sections */
+  section { padding: 5rem 0 0; }
+  .sec-head { margin-bottom: 2.5rem; }
+  .sec-title {
+    font: 600 clamp(2rem, 4vw, 2.7rem)/1.1 var(--head);
+    letter-spacing: -.025em; margin-bottom: .6rem;
+  }
+  .sec-file { font: 400 .8rem var(--mono); color: var(--mute); }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font: 400 .76rem var(--mono); color: var(--purple);
+    border: 1px solid rgba(139, 124, 246, .35); background: rgba(139, 124, 246, .08);
+    padding: .22rem .6rem; border-radius: 6px; margin-bottom: 1rem;
+  }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.25rem; align-items: start; }
+  .prose p { color: var(--dim); font-size: 1rem; margin-bottom: 1.1rem; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .feat-stack { display: grid; gap: 1rem; }
+  .feat {
+    display: grid; grid-template-columns: 38px 1fr; gap: .9rem;
+    background: var(--panel); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent, var(--purple));
+    border-radius: 10px; padding: 1.1rem 1.2rem;
+  }
+  .ico {
+    width: 38px; height: 38px; border: 1px solid var(--line-2); border-radius: 8px;
+    display: grid; place-items: center; color: var(--accent, var(--purple)); font-size: .95rem;
+  }
+  .feat h3 { font: 600 1rem var(--head); margin-bottom: .3rem; }
+  .feat p { color: var(--dim); font-size: .9rem; line-height: 1.6; }
+
+  /* education */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .edu-grid .win-b h3 { font: 600 1.15rem var(--head); margin-bottom: .25rem; }
+  .edu-grid .org { color: var(--sky); font: 400 .88rem var(--mono); margin-bottom: .9rem; }
+  .edu-grid .meta { color: var(--amber); font: 400 .8rem var(--mono); margin-bottom: 1rem; }
+  .edu-grid p { color: var(--dim); font-size: .95rem; margin-bottom: 1.1rem; }
+
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; }
+  .tags li {
+    font: 400 .76rem var(--mono); color: var(--dim);
+    background: #0b0f15; border: 1px solid var(--line-2); border-radius: 5px; padding: .25rem .55rem;
+  }
+
+  /* skills */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .skills-grid .win-b h3 { font: 600 1.05rem var(--head); margin-bottom: 1rem; display: flex; align-items: center; gap: .6rem; }
+  .skills-grid .win-b h3 i { color: var(--accent, var(--purple)); font-size: .95rem; }
+  .skills-grid .tags li:hover { color: var(--text); border-color: var(--accent, var(--purple)); }
+
+  /* projects */
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .proj { display: flex; flex-direction: column; }
+  .proj.wide { grid-column: 1 / -1; flex-direction: row; }
+  .proj.wide .proj-img { width: 46%; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
+  .proj-img {
+    position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+    background:
+      radial-gradient(70% 80% at 80% 10%, var(--glow, rgba(139,124,246,.18)), transparent 65%),
+      linear-gradient(180deg, #0f1620, #0b1017);
+    border-bottom: 1px solid var(--line);
+  }
+  .proj-img::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .shot {
+    position: absolute; left: 50%; top: 9%; height: 82%;
+    transform: translateX(-50%); aspect-ratio: 200 / 400;
+    filter: drop-shadow(0 22px 30px rgba(0,0,0,.5));
+    transition: transform .6s cubic-bezier(.2,.7,.1,1);
+  }
+  .shot svg { width: 100%; height: 100%; display: block; }
+  .proj:hover .shot { transform: translateX(-50%) translateY(-6px); }
+  .proj-body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+  .proj-body h3 { font: 600 1.2rem var(--head); margin-bottom: .5rem; letter-spacing: -.01em; }
+  .proj-body p { color: var(--dim); font-size: .92rem; margin-bottom: 1.1rem; }
+  .proj-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .proj-foot .tags li { font-size: .72rem; }
+  .repo {
+    display: inline-flex; align-items: center; gap: .45rem; font: 400 .82rem var(--mono);
+    color: var(--amber); text-decoration: none; white-space: nowrap;
+  }
+  .repo:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .proj.wide .proj-body { justify-content: center; padding: 2rem 2.2rem; }
+  .proj.wide .proj-body h3 { font-size: 1.5rem; }
+
+  /* experience */
+  .exp-list { list-style: none; }
+  .exp-list li {
+    display: grid; grid-template-columns: 170px 1fr; gap: 1.5rem;
+    padding: 1.4rem 0; border-top: 1px dashed var(--line-2);
+  }
+  .exp-list li:first-child { border-top: 0; padding-top: 0; }
+  .exp-list li:last-child { padding-bottom: 0; }
+  .exp-date { font: 400 .82rem var(--mono); color: var(--amber); padding-top: .2rem; }
+  .exp-date small { display: block; color: var(--mute); font-size: .74rem; margin-top: .25rem; }
+  .exp-list h3 { font: 600 1.05rem var(--head); margin-bottom: .15rem; }
+  .exp-list .org { color: var(--sky); font: 400 .82rem var(--mono); margin-bottom: .45rem; }
+  .exp-list p { color: var(--dim); font-size: .94rem; }
+
+  /* contact */
+  .contact-lines { font: 400 .95rem/1.9 var(--mono); }
+  .contact-lines .cl { display: block; color: var(--dim); }
+  .contact-lines .cl::before { content: "$ "; color: var(--green); }
+  .contact-lines a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line-2); transition: color .2s, border-color .2s; }
+  .contact-lines a:hover { color: var(--amber); border-color: var(--amber); }
+  .contact-lines .k { color: var(--mute); display: inline-block; min-width: 9ch; }
+  .contact-actions { margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+
+  footer { margin-top: 6rem; border-top: 1px solid var(--line); padding: 2rem 0 2.5rem; color: var(--mute); font: 400 .8rem var(--mono); }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .foot-links { display: flex; gap: 1.1rem; }
+  .foot-links a { color: var(--dim); font-size: 1rem; transition: color .2s; }
+  .foot-links a:hover { color: var(--amber); }
+
+  .wa {
+    position: fixed; right: 22px; bottom: 22px; width: 52px; height: 52px; border-radius: 50%;
+    display: grid; place-items: center; background: #25d366; color: #07130b; font-size: 1.5rem;
+    z-index: 150; text-decoration: none; box-shadow: 0 8px 26px rgba(37,211,102,.25);
+    transition: transform .3s;
+  }
+  .wa:hover { transform: scale(1.06); }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    .hero-grid, .about-grid, .edu-grid, .skills-grid, .proj-grid { grid-template-columns: 1fr; }
+    .portrait { max-width: 340px; }
+    .proj.wide { flex-direction: column; }
+    .proj.wide .proj-img { width: 100%; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--line); }
+    .links { display: none; }
+    .links.open {
+      display: flex; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0;
+      background: rgba(10,13,18,.98); padding: 1.5rem 1.25rem 2rem; gap: 1.2rem; border-bottom: 1px solid var(--line);
+    }
+    .links.open a { font-size: .95rem; }
+    .burger { display: block; }
+  }
+  @media (max-width: 600px) {
+    .exp-list li { grid-template-columns: 1fr; gap: .5rem; }
+    .term-body { padding: 1.1rem; }
+    .watermark { font-size: 16vw; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="watermark" aria-hidden="true">NDERITU</div>
+
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a href="#home" class="brand">Charles <span>Nderitu</span></a>
+      <nav aria-label="Primary">
+        <ul class="links" id="links">
+          <li><a href="#about">about</a></li>
+          <li><a href="#education">education</a></li>
+          <li><a href="#skills">skills</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#experience">experience</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="hero" style="padding-top: 3.5rem;">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">multidisciplinary technologist</span>
+            <h1>Charles<br>Nderitu</h1>
+            <p class="role"><span id="role">Software Engineer</span><span class="caret" aria-hidden="true"></span></p>
+            <p class="hero-sub">Engineering software, building digital products, and exploring secure cloud and AI systems.</p>
+            <div class="actions">
+              <button class="btn amber" onclick="generateCV()"><i class="fas fa-file-arrow-down"></i> Download CV</button>
+              <a href="#projects" class="btn"><i class="fas fa-code"></i> View featured projects <i class="fas fa-chevron-right" style="font-size:.7rem"></i></a>
+            </div>
+          </div>
+          <figure class="win portrait">
+            <div class="win-h">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="path"><i class="far fa-folder"></i> ~/charles/profile.jpg</span>
+            </div>
+            <div class="win-b">
+              <img src="https://raw.githubusercontent.com/simalaX/charles/main/sim.jpeg" alt="Charles Nderitu">
+            </div>
+          </figure>
+        </div>
+
+        <div class="win term" id="terminal">
+          <div class="win-h">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="path"><i class="far fa-folder"></i> ~/charles — zsh (Interactive Sandbox)</span>
+            <span class="badge-live">live terminal</span>
+          </div>
+          <div class="term-body">
+            <div class="ln"><span class="ps">charles</span> <span class="pc">:</span> <span class="pc">~</span> <span class="pd">$</span> whoami</div>
+            <div class="out">Multidisciplinary technologist. Software engineering, digital products, cloud security and AI security.</div>
+
+            <div class="term-log" id="termLog" aria-live="polite"></div>
+
+            <div class="cmd-label"><i class="fas fa-terminal" style="font-size:.7rem"></i> Run interactive command:</div>
+            <div class="cmds" id="cmds">
+              <button class="chip on" data-cmd="whoami">whoami</button>
+              <button class="chip" data-cmd="bio">bio</button>
+              <button class="chip" data-cmd="skills">skills</button>
+              <button class="chip" data-cmd="projects">projects</button>
+              <button class="chip" data-cmd="specs">specs</button>
+              <button class="chip" data-cmd="quickstart">quickstart</button>
+              <button class="chip" data-cmd="whatsapp">whatsapp</button>
+              <button class="chip" data-cmd="status">status</button>
+              <button class="chip" data-cmd="contact">contact</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="pill"><i class="fas fa-wand-magic-sparkles"></i> 01</span>
+          <h2 class="sec-title">About &amp; Architecture Focus</h2>
+          <div class="sec-file">README.md</div>
+        </div>
+
+        <div class="about-grid">
+          <div class="win">
+            <div class="win-h">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="path"><i class="far fa-folder"></i> developer_bio.md</span>
+            </div>
+            <div class="win-b prose">
+              <p>I am a Computer Science student and software engineer driven by building practical systems that solve real problems. My core focus is secure, end-to-end applications across web, mobile and blockchain.</p>
+              <p>My work spans <strong>software engineering</strong> across web and mobile applications, backend systems and databases. I build with Kotlin, Jetpack Compose, React, FastAPI and PostgreSQL, and I keep looking at how cloud environments and AI-powered systems are secured.</p>
+              <p>I also build with <strong>blockchain and Web3 technologies</strong>, including smart contracts and decentralized applications using Solidity, Ethereum and Hardhat.</p>
+            </div>
+          </div>
+
+          <div class="feat-stack">
+            <div class="feat" style="--accent: var(--purple);">
+              <div class="ico"><i class="fas fa-layer-group"></i></div>
+              <div>
+                <h3>Multi-Platform Systems</h3>
+                <p>Full-stack web, Android and backend work with React, FastAPI, Kotlin and Jetpack Compose, plus Spring Boot services.</p>
+              </div>
+            </div>
+            <div class="feat" style="--accent: var(--green);">
+              <div class="ico"><i class="fas fa-cube"></i></div>
+              <div>
+                <h3>Blockchain &amp; Web3</h3>
+                <p>Smart contracts and decentralized applications in Solidity and Hardhat, including on-chain voting and marketplace work.</p>
+              </div>
+            </div>
+            <div class="feat" style="--accent: var(--amber);">
+              <div class="ico"><i class="fas fa-shield-halved"></i></div>
+              <div>
+                <h3>Cloud &amp; AI Security</h3>
+                <p>Securing cloud environments and AI-powered systems, with threat modelling and security monitoring built into the work.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="pill"><i class="fas fa-graduation-cap"></i> 02</span>
+          <h2 class="sec-title">Education</h2>
+          <div class="sec-file">education/</div>
+        </div>
+
+        <div class="edu-grid">
+          <div class="win">
+            <div class="win-h">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="path"><i class="far fa-folder"></i> education/bsc-it.md</span>
+            </div>
+            <div class="win-b">
+              <h3>Bachelor of Science in Information Technology</h3>
+              <div class="org">Meru University of Science and Technology</div>
+              <div class="meta">2024 — Present · ongoing</div>
+              <p>Coursework across software engineering, systems design, databases, networking and application development, applied through client work and personal projects.</p>
+              <ul class="tags">
+                <li>Software Engineering</li><li>Data Structures &amp; Algorithms</li><li>Database Systems</li>
+                <li>Computer Networks</li><li>Mobile Development</li><li>Web Technologies</li><li>Operating Systems</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="win">
+            <div class="win-h">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="path"><i class="far fa-folder"></i> education/self-directed.md</span>
+            </div>
+            <div class="win-b">
+              <h3>Self-Directed Technical Training</h3>
+              <div class="org">Online platforms and independent study</div>
+              <div class="meta">continuous</div>
+              <p>Independent study in Kotlin and Jetpack Compose, FastAPI, PostgreSQL, React, TypeScript and modern deployment workflows, tested in practical software projects.</p>
+              <ul class="tags">
+                <li>Solidity &amp; Smart Contracts</li><li>Jetpack Compose</li><li>FastAPI &amp; PostgreSQL</li>
+                <li>React &amp; TypeScript</li><li>Cloud Deployment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="pill"><i class="fas fa-microchip"></i> 03</span>
+          <h2 class="sec-title">Skills &amp; Expertise</h2>
+          <div class="sec-file">skills --all</div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="win" style="--accent: var(--purple);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> skills/software.json</span></div>
+            <div class="win-b">
+              <h3><i class="fas fa-laptop-code"></i> Software Engineering</h3>
+              <ul class="tags">
+                <li>Python</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>FastAPI</li><li>Flask / Django</li>
+                <li>PostgreSQL</li><li>REST APIs</li><li>Git &amp; GitHub</li><li>Linux</li><li>HTML5 / CSS3</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="win" style="--accent: var(--sky);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> skills/mobile.json</span></div>
+            <div class="win-b">
+              <h3><i class="fas fa-mobile-screen-button"></i> Mobile Development</h3>
+              <ul class="tags">
+                <li>Kotlin</li><li>Java</li><li>Flutter</li><li>Dart</li><li>Jetpack Compose</li><li>Android SDK</li>
+                <li>Firebase</li><li>MVVM</li><li>Room</li><li>Retrofit</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="win" style="--accent: var(--green);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> skills/web3.json</span></div>
+            <div class="win-b">
+              <h3><i class="fas fa-cube"></i> Blockchain &amp; Web3</h3>
+              <ul class="tags">
+                <li>Solidity</li><li>Smart contracts</li><li>Ethereum</li><li>Web3.js</li><li>DApp development</li>
+                <li>ERC-721</li><li>Hardhat</li><li>IPFS</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="win" style="--accent: var(--amber);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> skills/security.json</span></div>
+            <div class="win-b">
+              <h3><i class="fas fa-shield-halved"></i> Cloud, Cybersecurity &amp; AI Security</h3>
+              <ul class="tags">
+                <li>Cloud security</li><li>AI security</li><li>Cybersecurity principles</li><li>Linux security</li>
+                <li>Network security</li><li>IAM</li><li>Threat modelling</li><li>Security monitoring</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="pill"><i class="fas fa-folder-tree"></i> 04</span>
+          <h2 class="sec-title">Featured Projects</h2>
+          <div class="sec-file">ls ~/projects</div>
+        </div>
+
+        <div class="proj-grid">
+
+          <article class="win proj wide" style="--glow: rgba(242,169,78,.18);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> garage-locator/README.md</span></div>
+            <div class="proj-img"><div class="shot" aria-hidden="true"><svg viewBox="0 0 200 400" focusable="false" style="font-family:Archivo,sans-serif"><rect x="3" y="3" width="194" height="394" rx="30" fill="#05080f" stroke="#2c3956" stroke-width="2"/><rect x="12" y="12" width="176" height="376" rx="23" fill="#131c2e"/><rect x="80" y="19" width="40" height="11" rx="5.5" fill="#05080f"/><g fill="none" stroke="#2a3a5c" stroke-width="3"><path d="M12 110H188"/><path d="M12 200H188"/><path d="M70 12V260"/><path d="M140 12V260"/></g><path d="M28 230C60 200 80 200 100 200S150 170 172 110" fill="none" stroke="#6fb7d9" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/><circle cx="100" cy="200" r="12" fill="#6fb7d9" opacity=".25"/><circle cx="100" cy="200" r="5" fill="#6fb7d9"/><g><circle cx="60" cy="150" r="8" fill="#ff7a59"/><circle cx="60" cy="150" r="3" fill="#0c1220"/><circle cx="150" cy="128" r="8" fill="#ff7a59"/><circle cx="150" cy="128" r="3" fill="#0c1220"/><circle cx="132" cy="232" r="8" fill="#ff7a59"/><circle cx="132" cy="232" r="3" fill="#0c1220"/></g><rect x="24" y="268" width="152" height="108" rx="14" fill="#0c1220"/><text x="36" y="292" fill="#eef0f2" font-size="11" font-weight="600">Auto Care Garage</text><text x="36" y="307" fill="#6c7689" font-size="8">Engine · Brakes · Tyres</text><text x="36" y="322" fill="#6fb7d9" font-size="8">Open now</text><rect x="36" y="334" width="128" height="26" rx="13" fill="#ff7a59"/><text x="100" y="351" text-anchor="middle" fill="#0c1220" font-size="9" font-weight="600">Book a slot</text></svg></div></div>
+            <div class="proj-body">
+              <h3>Garage Locator</h3>
+              <p>A GPS-based Android app that helps drivers find nearby garages and auto repair shops in real time. Live map integration, filtering by service type, bookings and Firebase authentication, built around a practical mobility problem in the Kenyan market.</p>
+              <div class="proj-foot">
+                <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Firebase</li><li>Google Maps API</li><li>GPS</li></ul>
+                <a class="repo" href="https://github.com/simalaX/Garage-Locator" target="_blank" rel="noopener"><i class="fab fa-github"></i> repository</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="win proj" style="--glow: rgba(139,124,246,.2);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> eduvote/README.md</span></div>
+            <div class="proj-img"><div class="shot" aria-hidden="true"><svg viewBox="0 0 200 400" focusable="false" style="font-family:Archivo,sans-serif"><rect x="3" y="3" width="194" height="394" rx="30" fill="#05080f" stroke="#2c3956" stroke-width="2"/><rect x="12" y="12" width="176" height="376" rx="23" fill="#131c2e"/><rect x="80" y="19" width="40" height="11" rx="5.5" fill="#05080f"/><text x="24" y="66" fill="#eef0f2" font-size="13" font-weight="600">Council vote</text><text x="24" y="82" fill="#6c7689" font-size="8">3 candidates · sealed ballot</text><text x="24" y="122" fill="#eef0f2" font-size="10">Candidate A</text><text x="176" y="122" text-anchor="end" fill="#6c7689" font-size="9">62%</text><rect x="24" y="130" width="152" height="8" rx="4" fill="#24314f"/><rect x="24" y="130" width="94.2" height="8" rx="4" fill="#ff7a59"/><text x="24" y="184" fill="#eef0f2" font-size="10">Candidate B</text><text x="176" y="184" text-anchor="end" fill="#6c7689" font-size="9">27%</text><rect x="24" y="192" width="152" height="8" rx="4" fill="#24314f"/><rect x="24" y="192" width="41.0" height="8" rx="4" fill="#6fb7d9"/><text x="24" y="246" fill="#eef0f2" font-size="10">Candidate C</text><text x="176" y="246" text-anchor="end" fill="#6c7689" font-size="9">11%</text><rect x="24" y="254" width="152" height="8" rx="4" fill="#24314f"/><rect x="24" y="254" width="16.7" height="8" rx="4" fill="#6c7689"/><rect x="24" y="300" width="152" height="52" rx="12" fill="#0c1220" stroke="#6fb7d9" stroke-width="1"/><circle cx="44" cy="326" r="9" fill="#6fb7d9"/><path d="M40 326L43 329L48 323" fill="none" stroke="#0c1220" stroke-width="2" stroke-linecap="round"/><text x="62" y="322" fill="#eef0f2" font-size="9" font-weight="600">Vote recorded</text><text x="62" y="337" fill="#6c7689" font-size="8">tx 0x9f…c21</text></svg></div></div>
+            <div class="proj-body">
+              <h3>EduVote — Web3 Voting Platform</h3>
+              <p>A blockchain voting application for school and college elections. Smart contracts on Ethereum keep each vote immutably recorded, with wallet-based authentication and real-time tallying.</p>
+              <div class="proj-foot">
+                <ul class="tags"><li>Solidity</li><li>Hardhat</li><li>Web3.js</li><li>Ethereum</li><li>React</li></ul>
+                <a class="repo" href="https://github.com/simalaX/EduVote" target="_blank" rel="noopener"><i class="fab fa-github"></i> repository</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="win proj" style="--glow: rgba(96,165,250,.18);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> popote-listings/README.md</span></div>
+            <div class="proj-img"><div class="shot" aria-hidden="true"><svg viewBox="0 0 200 400" focusable="false" style="font-family:Archivo,sans-serif"><rect x="3" y="3" width="194" height="394" rx="30" fill="#05080f" stroke="#2c3956" stroke-width="2"/><rect x="12" y="12" width="176" height="376" rx="23" fill="#131c2e"/><rect x="80" y="19" width="40" height="11" rx="5.5" fill="#05080f"/><text x="24" y="66" fill="#eef0f2" font-size="13" font-weight="600">Listings</text><rect x="24" y="78" width="152" height="24" rx="12" fill="#0c1220"/><text x="36" y="94" fill="#6c7689" font-size="8">Search by area</text><rect x="24" y="112" width="52" height="20" rx="10" fill="#ff7a59"/><text x="50" y="126" text-anchor="middle" fill="#0c1220" font-size="8" font-weight="600">For sale</text><rect x="82" y="112" width="52" height="20" rx="10" fill="none" stroke="#6c7689"/><text x="108" y="126" text-anchor="middle" fill="#a3adbb" font-size="8">For rent</text><rect x="24" y="146" width="152" height="108" rx="12" fill="#1c2840"/><polygon points="60,212 100,178 140,212" fill="#ff7a59"/><rect x="68" y="212" width="64" height="30" fill="#33446a"/><rect x="92" y="226" width="16" height="16" fill="#131c2e"/><rect x="24" y="264" width="152" height="108" rx="12" fill="#1c2840"/><polygon points="62,330 96,298 130,330" fill="#6fb7d9"/><rect x="70" y="330" width="52" height="28" fill="#33446a"/><rect x="88" y="342" width="16" height="16" fill="#131c2e"/></svg></div></div>
+            <div class="proj-body">
+              <h3>Popote Listings — Property Marketplace</h3>
+              <p>A Kenyan property marketplace for browsing, filtering and listing homes for sale and rent. Category browsing, search, image galleries, an admin panel and a WhatsApp inquiry flow.</p>
+              <div class="proj-foot">
+                <ul class="tags"><li>React</li><li>FastAPI</li><li>PostgreSQL</li><li>TypeScript</li><li>Render</li></ul>
+                <a class="repo" href="https://github.com/simalaX/popote-fronted" target="_blank" rel="noopener"><i class="fab fa-github"></i> repository</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="win proj" style="--glow: rgba(139,124,246,.18);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> vera/README.md</span></div>
+            <div class="proj-img"><div class="shot" aria-hidden="true"><svg viewBox="0 0 200 400" focusable="false" style="font-family:Archivo,sans-serif"><rect x="3" y="3" width="194" height="394" rx="30" fill="#05080f" stroke="#2c3956" stroke-width="2"/><rect x="12" y="12" width="176" height="376" rx="23" fill="#131c2e"/><rect x="80" y="19" width="40" height="11" rx="5.5" fill="#05080f"/><circle cx="36" cy="66" r="10" fill="#ff7a59"/><text x="54" y="70" fill="#eef0f2" font-size="12" font-weight="600">Vera</text><rect x="66" y="96" width="110" height="34" rx="14" fill="#6fb7d9"/><text x="80" y="117" fill="#0c1220" font-size="9" font-weight="500">Summarise my notes</text><rect x="22" y="146" width="132" height="70" rx="14" fill="#24314f"/><rect x="36" y="162" width="100" height="6" rx="3" fill="#a3adbb"/><rect x="36" y="176" width="112" height="6" rx="3" fill="#a3adbb" opacity=".7"/><rect x="36" y="190" width="64" height="6" rx="3" fill="#a3adbb" opacity=".5"/><rect x="56" y="232" width="120" height="30" rx="14" fill="#6fb7d9"/><text x="70" y="251" fill="#0c1220" font-size="9" font-weight="500">Draft a reply</text><circle cx="36" cy="290" r="3.5" fill="#ff7a59"/><circle cx="50" cy="290" r="3.5" fill="#ff7a59" opacity=".6"/><circle cx="64" cy="290" r="3.5" fill="#ff7a59" opacity=".3"/><rect x="20" y="322" width="160" height="34" rx="17" fill="#0c1220" stroke="#2c3956"/><text x="36" y="343" fill="#6c7689" font-size="9">Ask anything</text><circle cx="165" cy="339" r="11" fill="#ff7a59"/></svg></div></div>
+            <div class="proj-body">
+              <h3>Vera — AI Assistant App</h3>
+              <p>A Kotlin AI personal assistant for Android. Vera handles natural-language requests, task automation and on-demand information, with a clean Compose interface designed mobile-first.</p>
+              <div class="proj-foot">
+                <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>AI / NLP</li><li>Firebase</li><li>Android SDK</li></ul>
+                <a class="repo" href="https://github.com/simalaX/vera" target="_blank" rel="noopener"><i class="fab fa-github"></i> repository</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="win proj" style="--glow: rgba(52,211,153,.14);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> smartfarm/README.md</span></div>
+            <div class="proj-img"><div class="shot" aria-hidden="true"><svg viewBox="0 0 200 400" focusable="false" style="font-family:Archivo,sans-serif"><rect x="3" y="3" width="194" height="394" rx="30" fill="#05080f" stroke="#2c3956" stroke-width="2"/><rect x="12" y="12" width="176" height="376" rx="23" fill="#131c2e"/><rect x="80" y="19" width="40" height="11" rx="5.5" fill="#05080f"/><text x="24" y="66" fill="#eef0f2" font-size="13" font-weight="600">Today on the farm</text><rect x="24" y="80" width="152" height="90" rx="14" fill="#1f3354"/><circle cx="146" cy="112" r="14" fill="#ff7a59"/><text x="36" y="132" fill="#eef0f2" font-size="26" font-weight="600">24°</text><text x="36" y="150" fill="#a3adbb" font-size="8">Rain likely by Thursday</text><rect x="24" y="184" width="152" height="112" rx="14" fill="#1c2840"/><text x="36" y="202" fill="#6c7689" font-size="8">Market price, last 6 weeks</text><polyline points="36,270 58,256 80,262 102,240 124,236 146,220 168,212" fill="none" stroke="#6fb7d9" stroke-width="2.5" stroke-linejoin="round"/><circle cx="168" cy="212" r="3.5" fill="#ff7a59"/><rect x="24" y="308" width="46" height="60" rx="10" fill="#6fb7d9" opacity=".8"/><rect x="77" y="308" width="46" height="60" rx="10" fill="#ff7a59" opacity=".8"/><rect x="130" y="308" width="46" height="60" rx="10" fill="#33446a"/></svg></div></div>
+            <div class="proj-body">
+              <h3>SmartFarm — Weather &amp; Finance Companion</h3>
+              <p>An Android companion for smallholder farmers in Kenya. Real-time forecasts, crop advice based on conditions, market price tracking and farm expense management in one place.</p>
+              <div class="proj-foot">
+                <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Weather API</li><li>Firebase</li><li>MVVM</li></ul>
+                <a class="repo" href="https://github.com/simalaX/smartFarm-Kotlin" target="_blank" rel="noopener"><i class="fab fa-github"></i> repository</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="win proj" style="--glow: rgba(242,169,78,.14);">
+            <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> veritas/README.md</span></div>
+            <div class="proj-img"><div class="shot" aria-hidden="true"><svg viewBox="0 0 200 400" focusable="false" style="font-family:Archivo,sans-serif"><rect x="3" y="3" width="194" height="394" rx="30" fill="#05080f" stroke="#2c3956" stroke-width="2"/><rect x="12" y="12" width="176" height="376" rx="23" fill="#131c2e"/><rect x="80" y="19" width="40" height="11" rx="5.5" fill="#05080f"/><text x="24" y="66" fill="#eef0f2" font-size="13" font-weight="600">Veritas</text><rect x="24" y="78" width="152" height="24" rx="12" fill="#0c1220"/><text x="36" y="94" fill="#6c7689" font-size="8">Search content</text><rect x="24" y="112" width="48" height="18" rx="9" fill="#ff7a59"/><text x="48" y="124" text-anchor="middle" fill="#0c1220" font-size="8" font-weight="600">PDFs</text><rect x="78" y="112" width="44" height="18" rx="9" fill="none" stroke="#6c7689"/><text x="100" y="124" text-anchor="middle" fill="#a3adbb" font-size="8">Audio</text><rect x="128" y="112" width="48" height="18" rx="9" fill="none" stroke="#6c7689"/><text x="152" y="124" text-anchor="middle" fill="#a3adbb" font-size="8">Video</text><rect x="24" y="142" width="72" height="84" rx="10" fill="#1c2840"/><rect x="34" y="152" width="30" height="40" rx="3" fill="#33446a"/><rect x="40" y="162" width="18" height="3" rx="1.5" fill="#a3adbb"/><rect x="40" y="170" width="18" height="3" rx="1.5" fill="#a3adbb" opacity=".7"/><rect x="40" y="178" width="12" height="3" rx="1.5" fill="#a3adbb" opacity=".5"/><text x="36" y="214" fill="#a3adbb" font-size="8">Reading</text><rect x="104" y="142" width="72" height="84" rx="10" fill="#1c2840"/><rect x="116" y="179.0" width="4" height="10" rx="2" fill="#6fb7d9"/><rect x="123" y="175.0" width="4" height="18" rx="2" fill="#6fb7d9"/><rect x="130" y="171.0" width="4" height="26" rx="2" fill="#6fb7d9"/><rect x="137" y="177.0" width="4" height="14" rx="2" fill="#6fb7d9"/><rect x="144" y="169.0" width="4" height="30" rx="2" fill="#6fb7d9"/><rect x="151" y="174.0" width="4" height="20" rx="2" fill="#6fb7d9"/><rect x="158" y="178.0" width="4" height="12" rx="2" fill="#6fb7d9"/><rect x="165" y="172.0" width="4" height="24" rx="2" fill="#6fb7d9"/><rect x="172" y="176.0" width="4" height="16" rx="2" fill="#6fb7d9"/><text x="116" y="214" fill="#a3adbb" font-size="8">Sermons</text><rect x="24" y="236" width="72" height="84" rx="10" fill="#1c2840"/><rect x="34" y="246" width="52" height="30" rx="4" fill="#0c1220"/><polygon points="56,255 70,261 56,267" fill="#ff7a59"/><text x="36" y="302" fill="#a3adbb" font-size="8">Teaching</text><rect x="104" y="236" width="72" height="84" rx="10" fill="#1c2840"/><rect x="114" y="246" width="52" height="30" rx="4" fill="#0c1220"/><polygon points="120,272 136,256 148,266 156,260 162,272" fill="#33446a"/><circle cx="154" cy="252" r="3.5" fill="#ff7a59"/><text x="116" y="302" fill="#a3adbb" font-size="8">Images</text><rect x="24" y="332" width="152" height="40" rx="12" fill="#0c1220"/><circle cx="44" cy="352" r="9" fill="#ff7a59"/><rect x="41" y="348" width="2.5" height="8" fill="#0c1220"/><rect x="45.5" y="348" width="2.5" height="8" fill="#0c1220"/><text x="62" y="348" fill="#eef0f2" font-size="8" font-weight="600">Sermon, part 1</text><rect x="62" y="356" width="100" height="3" rx="1.5" fill="#24314f"/><rect x="62" y="356" width="40" height="3" rx="1.5" fill="#6fb7d9"/></svg></div></div>
+            <div class="proj-body">
+              <h3>Veritas — Christian Media Platform</h3>
+              <p>A full-stack spiritual media app for reaching Christian content in one place: PDFs, audio, images and video. A Kotlin Android client on a Spring Boot backend, containerised with Docker for deployment on Render.</p>
+              <div class="proj-foot">
+                <ul class="tags"><li>Kotlin</li><li>Java</li><li>Spring Boot</li><li>Docker</li><li>Render</li></ul>
+                <a class="repo" href="https://github.com/korryrdev/veritas-fullstack" target="_blank" rel="noopener"><i class="fab fa-github"></i> repository</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="pill"><i class="fas fa-briefcase"></i> 05</span>
+          <h2 class="sec-title">Experience</h2>
+          <div class="sec-file">git log --since=2024</div>
+        </div>
+
+        <div class="win">
+          <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> experience.log</span></div>
+          <div class="win-b">
+            <ul class="exp-list">
+              <li>
+                <div class="exp-date">2024 — Present<small>Independent / Remote</small></div>
+                <div>
+                  <h3>Freelance Software Engineer</h3>
+                  <div class="org">Clients across Kenya</div>
+                  <p>Full-stack web and mobile applications, including property platforms, AI apps, business websites and APIs. Each project is run end to end, from discovery through deployment.</p>
+                </div>
+              </li>
+              <li>
+                <div class="exp-date">2024 — Present<small>Personal &amp; client projects</small></div>
+                <div>
+                  <h3>Android Developer</h3>
+                  <div class="org">Kotlin · Jetpack Compose</div>
+                  <p>Shipping Android applications: GPS-based tools, AI assistants, agri-tech solutions and marketplace platforms aimed at the Kenyan market.</p>
+                </div>
+              </li>
+              <li>
+                <div class="exp-date">2024 — Present<small>Web3 projects</small></div>
+                <div>
+                  <h3>Blockchain Developer</h3>
+                  <div class="org">Solidity · Hardhat · Ethereum</div>
+                  <p>Decentralized applications and smart contracts, including a blockchain voting platform for educational institutions and DeFi and NFT marketplace work.</p>
+                </div>
+              </li>
+              <li>
+                <div class="exp-date">2024 — Present<small>GitHub: @simalaX</small></div>
+                <div>
+                  <h3>Open Source Contributor</h3>
+                  <div class="org">mobile · web3 · developer tools</div>
+                  <p>Maintaining open-source repositories across mobile applications, Web3 experiments and developer tools.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="pill"><i class="fas fa-paper-plane"></i> 06</span>
+          <h2 class="sec-title">Get in touch</h2>
+          <div class="sec-file">contact.sh</div>
+        </div>
+
+        <div class="win">
+          <div class="win-h"><span class="dots"><i></i><i></i><i></i></span><span class="path"><i class="far fa-folder"></i> ~/charles — contact.sh</span></div>
+          <div class="win-b">
+            <div class="contact-lines">
+              <span class="cl"><span class="k">email</span><a href="mailto:simalawatts111@gmail.com">simalawatts111@gmail.com</a></span>
+              <span class="cl"><span class="k">whatsapp</span><a href="https://wa.me/254718902699" target="_blank" rel="noopener">+254 718 902 699</a></span>
+              <span class="cl"><span class="k">github</span><a href="https://github.com/simalaX" target="_blank" rel="noopener">@simalaX</a></span>
+              <span class="cl"><span class="k">x</span><a href="https://x.com/SimalaWatts" target="_blank" rel="noopener">@SimalaWatts</a></span>
+              <span class="cl"><span class="k">instagram</span><a href="https://www.instagram.com/_simalawatts/" target="_blank" rel="noopener">@_simalawatts</a></span>
+              <span class="cl"><span class="k">facebook</span><a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank" rel="noopener">Charles Nderitu</a></span>
+            </div>
+            <p style="color: var(--dim); margin-top: 1.4rem; max-width: 56ch;">Open to new projects, creative ideas and collaborations: a business website, a web platform, a mobile app, or a product idea that needs shaping.</p>
+            <div class="contact-actions">
+              <button class="btn amber" onclick="generateCV()"><i class="fas fa-file-arrow-down"></i> Download CV (PDF)</button>
+              <a class="btn" href="mailto:simalawatts111@gmail.com"><i class="fas fa-envelope"></i> Send an email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>designed &amp; built by charles nderitu · © 2026</span>
+      <div class="foot-links">
+        <a href="https://github.com/simalaX" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/SimalaWatts" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/_simalawatts/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100092228034364" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/254718902699" class="wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <script>
+    /* progress + nav */
+    const nav = document.getElementById('nav');
+    const progress = document.getElementById('progress');
+    const navLinks = [...document.querySelectorAll('#links a')];
+    const chapters = [...document.querySelectorAll('main section[id]')];
+
+    function onScroll() {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+      let current = '';
+      chapters.forEach(s => { if (y >= s.offsetTop - window.innerHeight * 0.4) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(() => { onScroll(); ticking = false; }); ticking = true; }
+    }, { passive: true });
+    onScroll();
+
+    /* mobile menu */
+    const burger = document.getElementById('burger');
+    const links = document.getElementById('links');
+    burger.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+      burger.innerHTML = open ? '<i class="fas fa-xmark"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    navLinks.forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.innerHTML = '<i class="fas fa-bars"></i>';
+    }));
+
+    /* typed role line */
+    const roles = ['Software Engineer', 'Cloud & AI Security', 'Full-Stack & Mobile Developer', 'Blockchain Developer'];
+    const roleEl = document.getElementById('role');
+    if (roleEl && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let r = 0, c = 0, deleting = false;
+      const tick = () => {
+        const word = roles[r];
+        if (!deleting) {
+          c++; roleEl.textContent = word.slice(0, c);
+          if (c === word.length) { deleting = true; return setTimeout(tick, 2000); }
+          setTimeout(tick, 90);
+        } else {
+          c--; roleEl.textContent = word.slice(0, c);
+          if (c === 0) { deleting = false; r = (r + 1) % roles.length; return setTimeout(tick, 350); }
+          setTimeout(tick, 40);
+        }
+      };
+      setTimeout(tick, 900);
+    } else if (roleEl) {
+      roleEl.textContent = roles[0];
+    }
+
+    /* interactive terminal */
+    const COMMANDS = {
+      whoami: 'Charles Nderitu. Multidisciplinary technologist building software, digital products, and secure cloud and AI systems.',
+      bio: 'Computer Science student and software engineer. Building practical systems across web, mobile, blockchain and security.',
+      skills: 'Python · TypeScript · React · FastAPI · PostgreSQL · Kotlin · Jetpack Compose · Solidity · Hardhat · Linux · Cloud & AI security',
+      projects: 'garage-locator   eduvote   popote-listings   vera   smartfarm   veritas',
+      specs: 'stack: Kotlin, Jetpack Compose, React, FastAPI, PostgreSQL, Spring Boot, Solidity · deploys with Docker on Render',
+      quickstart: 'Scroll to read the work, or run "projects" to list what has been built.',
+      status: 'Open to freelance work and collaborations.',
+      contact: 'simalawatts111@gmail.com  ·  +254 718 902 699'
+    };
+    const termLog = document.getElementById('termLog');
+    const chips = [...document.querySelectorAll('.chip')];
+
+    function runCommand(cmd) {
+      chips.forEach(c => c.classList.toggle('on', c.dataset.cmd === cmd));
+      const entry = document.createElement('div');
+      entry.className = 'entry';
+      const line = document.createElement('div');
+      line.className = 'cmdline';
+      const ps = document.createElement('b');
+      ps.textContent = 'charles : ~ $ ';
+      line.appendChild(ps);
+      line.appendChild(document.createTextNode(cmd));
+      const result = document.createElement('div');
+      result.className = 'result';
+
+      if (cmd === 'whatsapp') {
+        result.textContent = 'Opening WhatsApp…';
+        window.open('https://wa.me/254718902699', '_blank', 'noopener');
+      } else {
+        result.textContent = COMMANDS[cmd] || 'command not found: ' + cmd;
+      }
+      entry.appendChild(line);
+      entry.appendChild(result);
+      termLog.appendChild(entry);
+      while (termLog.children.length > 12) termLog.removeChild(termLog.firstChild);
+      termLog.scrollTop = termLog.scrollHeight;
+    }
+
+    chips.forEach(chip => chip.addEventListener('click', () => runCommand(chip.dataset.cmd)));
+
+    /* ---------- CV generator (jsPDF) ---------- */
+    function generateCV() {
+      if (!window.jspdf) { alert('The PDF library did not load. Please check your connection and try again.'); return; }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+      const W = 210, M = 16, LIMIT = 280;
+
+      const ink = [12, 18, 32], bone = [238, 240, 242];
+      const dark = [30, 28, 24], body = [85, 82, 76], mute = [135, 130, 120];
+      const brass = [214, 84, 58], rule = [215, 210, 200];
+      let y = 0;
+
+      const needs = (h) => { if (y + h > LIMIT) { doc.addPage(); y = 22; } };
+
+      function sectionHead(label) {
+        needs(16);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.setTextColor(...brass);
+        doc.text(label.toUpperCase(), M, y);
+        doc.setDrawColor(...rule);
+        doc.setLineWidth(0.3);
+        doc.line(M, y + 2.5, W - M, y + 2.5);
+        y += 10;
+      }
+
+      function para(text, indent = 0, width = W - 2 * M - indent) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9.5);
+        doc.setTextColor(...body);
+        const lines = doc.splitTextToSize(text, width);
+        lines.forEach(line => { needs(5.2); doc.text(line, M + indent, y); y += 5.2; });
+      }
+
+      function entry(title, meta, right) {
+        needs(12);
+        doc.setFont('times', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(...dark);
+        doc.text(title, M, y);
+        if (right) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8.5);
+          doc.setTextColor(...mute);
+          doc.text(right, W - M, y, { align: 'right' });
+        }
+        y += 5.5;
+        if (meta) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(...brass);
+          doc.text(meta, M, y);
+          y += 5;
+        }
+      }
+
+      // Header band
+      doc.setFillColor(...ink);
+      doc.rect(0, 0, W, 50, 'F');
+      doc.setFont('times', 'bold');
+      doc.setFontSize(26);
+      doc.setTextColor(...bone);
+      doc.text('Charles Nderitu', M, 22);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(...brass);
+      doc.text('Multidisciplinary Technologist  |  Software  |  Cloud & AI Security', M, 30);
+      doc.setFontSize(8.5);
+      doc.setTextColor(190, 185, 172);
+      doc.text('simalawatts111@gmail.com   |   Nairobi, Kenya   |   github.com/simalaX', M, 39);
+      doc.text('wa.me/254718902699', M, 44);
+      y = 62;
+
+      sectionHead('Professional summary');
+      para('Multidisciplinary technologist building full-stack web applications, native Android apps, backend systems and blockchain platforms. Pursuing a BSc in Information Technology at Meru University of Science and Technology, with a focus on practical software engineering and growing capability in cloud security, cybersecurity and AI security. Experienced with Kotlin and Jetpack Compose, React, FastAPI, PostgreSQL, Solidity and modern development tooling.');
+      y += 4;
+
+      sectionHead('Education');
+      entry('Bachelor of Science in Information Technology', 'Meru University of Science and Technology', '2024 — Present');
+      para('Coursework in software engineering, data structures, database systems, computer networks, mobile development, web technologies and operating systems. Applied through client work and personal projects.', 0);
+      y += 3;
+      entry('Self-directed technical training', 'Online platforms and independent study', 'Continuous');
+      para('Kotlin and Jetpack Compose, FastAPI and PostgreSQL, React and TypeScript, Solidity and smart contracts, cloud deployment.', 0);
+      y += 4;
+
+      sectionHead('Technical skills');
+      const skills = [
+        ['Software engineering & web', 'Python, JavaScript, TypeScript, React, FastAPI, Flask / Django, PostgreSQL, REST APIs, Git, Linux, HTML5 / CSS3'],
+        ['Mobile development', 'Kotlin, Java, Jetpack Compose, Android SDK, Flutter / Dart, Firebase, MVVM, Room, Retrofit'],
+        ['Blockchain & Web3', 'Solidity, smart contracts, Ethereum, Web3.js, Hardhat, DApp development, ERC-721 / ERC-20, IPFS'],
+        ['Cloud, cybersecurity & AI security', 'Cloud security, AI security, Linux security, network security, identity & access management, threat modelling, security monitoring']
+      ];
+      skills.forEach(([label, list]) => {
+        needs(14);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9.5);
+        doc.setTextColor(...dark);
+        doc.text(label, M, y);
+        y += 5;
+        para(list, 0);
+        y += 1.5;
+      });
+      y += 3;
+
+      sectionHead('Projects');
+      const projects = [
+        ['Garage Locator', 'github.com/simalaX/Garage-Locator', 'Kotlin, Jetpack Compose, Firebase, Google Maps API', 'GPS-based Android app for finding nearby garages and auto repair shops in real time, with live maps, service filtering, bookings and Firebase authentication.'],
+        ['EduVote, Web3 voting platform', 'github.com/simalaX/EduVote', 'Solidity, Hardhat, Web3.js, Ethereum, React', 'Blockchain voting application for school and college elections. Smart contracts keep votes immutable, with wallet-based authentication and real-time tallying.'],
+        ['Popote Listings, property marketplace', 'github.com/simalaX/popote-fronted', 'React, FastAPI, PostgreSQL, TypeScript, Render', 'Kenyan property marketplace with category browsing, search, galleries, an admin panel and a WhatsApp inquiry flow.'],
+        ['Vera, AI assistant app', 'github.com/simalaX/vera', 'Kotlin, Jetpack Compose, AI / NLP, Firebase', 'Android AI personal assistant for natural-language requests, task automation and on-demand information.'],
+        ['SmartFarm, weather & finance companion', 'github.com/simalaX/smartFarm-Kotlin', 'Kotlin, Jetpack Compose, Weather API, Firebase, MVVM', 'Forecasts, crop advice, market prices and expense tracking for smallholder farmers in Kenya.'],
+        ['Veritas, Christian media platform', 'github.com/korryrdev/veritas-fullstack', 'Kotlin, Java, Spring Boot, Docker, Render', 'Android app with a Spring Boot backend for Christian content: PDFs, audio, images and video, containerised for Render deployment.']
+      ];
+      projects.forEach(([name, url, stack, desc]) => {
+        needs(22);
+        doc.setFont('times', 'bold');
+        doc.setFontSize(10.5);
+        doc.setTextColor(...dark);
+        doc.text(name, M, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(...brass);
+        doc.text(url, W - M, y, { align: 'right' });
+        y += 4.8;
+        doc.setFont('helvetica', 'italic');
+        doc.setFontSize(8.5);
+        doc.setTextColor(...mute);
+        doc.text(stack, M, y);
+        y += 4.8;
+        para(desc, 0);
+        y += 2.5;
+      });
+
+      sectionHead('Experience');
+      entry('Freelance Software Engineer', 'Independent / Remote', '2024 — Present');
+      para('Full-stack web and mobile applications for clients in Kenya: property platforms, AI apps, business websites and APIs. Full project lifecycle from discovery to deployment.');
+      y += 3;
+      entry('Android Developer', 'Personal & client projects', '2024 — Present');
+      para('Shipped Android applications in Kotlin and Jetpack Compose, including GPS-based tools, AI assistants, agri-tech and marketplace platforms.');
+      y += 3;
+      entry('Blockchain Developer', 'Web3 projects', '2024 — Present');
+      para('Decentralized applications and smart contracts in Solidity and Hardhat, including a blockchain voting platform for educational institutions and DeFi and NFT marketplace work.');
+
+      // Footer on every page
+      const pages = doc.internal.getNumberOfPages();
+      for (let i = 1; i <= pages; i++) {
+        doc.setPage(i);
+        doc.setFillColor(...ink);
+        doc.rect(0, 287, W, 10, 'F');
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7.5);
+        doc.setTextColor(...bone);
+        doc.text(`Charles Nderitu   |   simalawatts111@gmail.com   |   github.com/simalaX   |   Page ${i} of ${pages}`, W / 2, 293, { align: 'center' });
+      }
+
+      doc.save('Charles_Nderitu_CV.pdf');
+    }
+
+  </script>
+
+  <!-- jsPDF for CV generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
